@@ -13,6 +13,7 @@ enum Body:  String {
 }
 
 enum Commands: String {
+	case test = "test"
 	case add = "add"
 	case delete = "delete"
 	case show = "show"
@@ -32,29 +33,49 @@ enum Constants: String {
 	case separator = "-------------------------------------"
 }
 
-var carsList: [Car] = [Car(manufacturer: "Ford",
-						   model: "Focus",
-						   body: .sedan,
-						   yearOfIssue: 2008,
-						   carNumber: "у236ох"),
-					   Car(manufacturer: "Toyota",
-						   model: "Camry",
-						   body: .cabriolet,
-						   yearOfIssue: 2008,
-						   carNumber: "у236ох")]
+var carsList: [Car] = []
+
+func addTestData() {
+	let testCar1: Car = Car(manufacturer: "Ford",
+						model: "Focus",
+						body: .sedan,
+						yearOfIssue: 2008,
+						carNumber: "о111оо")
+
+	let testCar2: Car = Car(manufacturer: "Toyota",
+						model: "Camry",
+						body: .cabriolet,
+						yearOfIssue: 2012,
+						carNumber: "у236ох")
+	append(car: testCar1)
+	append(car: testCar2)
+
+	print(Constants.separator.rawValue)
+	print("Добавлены тестовые данные. Напишите 'show', чтобы отобразить.")
+	print(Constants.separator.rawValue)
+}
 
 func show(cars: [Car]) {
+	print(Constants.separator.rawValue)
+
+	if carsList.isEmpty {
+		print("Список пуст.")
+		print(Constants.separator.rawValue)
+		return
+	}
+
 	for car in cars {
 		print(cars.firstIndex(of: car) ?? "*", "-",
 			  "Производитель: ", car.manufacturer,"\n",
-			  "   Модель: ", car.model)
-
-		print("    Год выпуска: ", car.yearOfIssue ?? "-")
+			  "   Модель: ", car.model,"\n",
+			  "   Тип кузова: ", car.body.rawValue,"\n",
+			  "   Год выпуска: ", car.yearOfIssue ?? "-")
 
 		if (car.carNumber?.count != 0) {
-			print("    Гос. номер: ", car.carNumber ?? "-","\n")
+			print("    Гос. номер: ", car.carNumber ?? "-", "\n")
 		}
 	}
+	print(Constants.separator.rawValue)
 }
 
 func filter(){
@@ -122,6 +143,11 @@ func add() {
 
 func delete() {
 
+	if carsList.isEmpty {
+		print("Невозможно удалить. Список пуст.")
+		return
+	}
+
 	print(Constants.separator.rawValue)
 	show(cars: carsList)
 
@@ -139,7 +165,7 @@ func delete() {
 }
 
 func help() {
-	print("\n show - отобразить список \n add - добавить машину \n delete - удалить машину\n filter - применить фильтр\n")
+	print("\n show - отобразить список \n add - добавить машину \n test - добавить тестовые данные \n delete - удалить машину\n filter - применить фильтр\n")
 }
 
 var exitFlag: Bool = true
@@ -150,6 +176,8 @@ while (exitFlag) {
 	switch Commands(rawValue: command!) {
 	case .none:
 		help()
+	case .some(.test):
+		addTestData()
 	case .some(.add):
 		add()
 	case .some(.delete):
