@@ -19,6 +19,7 @@ enum Commands: String {
 	case show = "show"
 	case help = "help"
 	case filter = "filter"
+	case exit = "exit"
 }
 
 struct Car: Equatable {
@@ -165,11 +166,11 @@ func delete() {
 }
 
 func help() {
-	print("\n show - отобразить список \n add - добавить машину \n test - добавить тестовые данные \n delete - удалить машину\n filter - применить фильтр\n")
+	print("\n show - отобразить список \n add - добавить машину \n test - добавить тестовые данные \n delete - удалить машину\n filter - применить фильтр\n exit - выход")
 }
 
-var exitFlag: Bool = true
-while (exitFlag) {
+var exitFlag: Bool = false
+while (!exitFlag) {
 	print("\nВведите команду:\n(Введите 'help' для вывода списка команд)")
 
 	let command = readLine()
@@ -188,5 +189,7 @@ while (exitFlag) {
 		help()
 	case .some(.filter):
 		filter()
+	case .some(.exit):
+		exitFlag = true
 	}
 }
