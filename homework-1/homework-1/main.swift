@@ -46,11 +46,14 @@ var carsList: [Car] = [Car(manufacturer: "Ford",
 func show(cars: [Car]) {
 	for car in cars {
 		print(cars.firstIndex(of: car) ?? "*", "-",
-			  "Manufacturer: ", car.manufacturer,"\n",
-			  "   Body: ", car.model,"\n",
-			  "   YearOfIssue: ", car.yearOfIssue ?? "-","\n",
-			  "   CarNumber: ", car.carNumber ?? "-","\n"
-		)
+			  "Производитель: ", car.manufacturer,"\n",
+			  "   Модель: ", car.model)
+
+		print("    Год выпуска: ", car.yearOfIssue ?? "-")
+
+		if (car.carNumber?.count != 0) {
+			print("    Гос. номер: ", car.carNumber ?? "-","\n")
+		}
 	}
 }
 
@@ -87,7 +90,7 @@ func add() {
 	var yearOfIssue: Int?
 	var carNumber: String?
 
-	print(Constants.separator)
+	print(Constants.separator.rawValue)
 	print("Введите марку машины:")
 	manufacturer = readLine()
 
@@ -102,30 +105,33 @@ func add() {
 	}
 
 
-	print("Введите год:")
+	print("Введите год (или нажмите 'Enter', чтобы пропустить) :")
 	yearOfIssue = Int(readLine()!)
 
-	print("Введите номер автомобиля:")
+	print("Введите номер автомобиля: (или нажмите 'Enter', чтобы пропустить) :")
 	carNumber = readLine()
 
 	append(car: Car(manufacturer: manufacturer!,
 					model: model!,
 					body: body,
-					yearOfIssue: yearOfIssue!,
-					carNumber: carNumber!))
-	print(Constants.separator)
+					yearOfIssue: yearOfIssue,
+					carNumber: carNumber))
+
+	print(Constants.separator.rawValue)
 }
 
 func delete() {
-	print(Constants.separator)
+
+	print(Constants.separator.rawValue)
 	show(cars: carsList)
+
 	print("Введите номер из списка на удаление: ")
 	guard let indexToDelete = readLine() else { return }
 	let i: Int = Int(indexToDelete) ?? -1
 	if (carsList.indices.contains(i)) {
 		carsList.remove(at: i)
 		print("Машина под номером", i, "удалена.")
-		print(Constants.separator)
+		print(Constants.separator.rawValue)
 	} else {
 		print("Номер введен неверно.")
 		delete()
