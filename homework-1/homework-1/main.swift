@@ -154,7 +154,7 @@ func add() {
 	while (body == .undefined) {
 		print("Выберите тип кузова:")
 		print(" 0 - Седан \n 1 - купе \n 2 - кабриолет")
-		let bodyIndex: Int = Int(readLine()!) ?? -1
+		let bodyIndex: Int = strongReadInt()
 		body = Car.Body(index: bodyIndex) ?? .undefined
 	}
 
