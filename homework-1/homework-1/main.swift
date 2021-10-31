@@ -5,29 +5,73 @@
 //  Created by Кирилл Прокофьев on 27.10.2021.
 //
 
-enum Body:  String {
-	case sedan = "Sedan"
-	case coupe = "Coupe"
-	case cabriolet = "Cabriolet"
-	case undefined
+
+enum Commands: Int, CaseIterable, CustomStringConvertible {
+	var description: String {
+		switch self {
+		case .add:
+			return "\(self.rawValue) - Добавить автомобиль"
+		case .test:
+			return "\(self.rawValue) - Добавить тестовые данные"
+		case .delete:
+			return "\(self.rawValue) - Удалить автомобиль"
+		case .show:
+			return "\(self.rawValue) - Отобразить список автомобилей"
+		case .help:
+			return "\(self.rawValue) - Список команд"
+		case .filter:
+			return "\(self.rawValue) - Фильтрация по типу кузова"
+		case .exit:
+			return "\(self.rawValue) - Выход"
+		}
+	}
+
+	case test = 1
+	case add = 2
+	case delete = 3
+	case show = 4
+	case help = 5
+	case filter = 6
+	case exit = 0
 }
 
-enum Commands: String {
-	case test = "test"
-	case add = "add"
-	case delete = "delete"
-	case show = "show"
-	case help = "help"
-	case filter = "filter"
-	case exit = "exit"
-}
+struct Car: CustomStringConvertible {
 
-struct Car: Equatable {
+	var description: String {
+  """
+
+   manufacturer: \(manufacturer)
+   model: \(model)
+   body: \(body.rawValue)
+   yearOfIssue: \(yearOfIssue?.description ?? "-")
+   \(carNumber != nil ? "carNumber:  \(String(describing: carNumber))":"")
+
+  """
+	}
+
 	let manufacturer: String
 	let model: String
 	let body: Body
 	let yearOfIssue: Int?
 	let carNumber: String?
+
+	enum Body:  String, CaseIterable {
+		case sedan = "Седан"
+		case coupe = "Купе"
+		case cabriolet = "Кабриолет"
+		case undefined
+
+		init?(index: Int) {
+			for (indexEnumerated, value) in Self.allCases.enumerated() {
+				if indexEnumerated == index {
+					self = value
+					return
+				}
+			}
+
+			return nil
+		}
+	}
 }
 
 enum Constants: String {
@@ -38,16 +82,16 @@ var carsList: [Car] = []
 
 func addTestData() {
 	let testCar1: Car = Car(manufacturer: "Ford",
-						model: "Focus",
-						body: .sedan,
-						yearOfIssue: 2008,
-						carNumber: "о111оо")
+							model: "Focus",
+							body: .sedan,
+							yearOfIssue: 2008,
+							carNumber: "о111оо")
 
 	let testCar2: Car = Car(manufacturer: "Toyota",
-						model: "Camry",
-						body: .cabriolet,
-						yearOfIssue: 2012,
-						carNumber: "у236ох")
+							model: "Camry",
+							body: .cabriolet,
+							yearOfIssue: 2012,
+							carNumber: "у236ох")
 	append(car: testCar1)
 	append(car: testCar2)
 
@@ -65,41 +109,29 @@ func show(cars: [Car]) {
 		return
 	}
 
-	for car in cars {
-		print(cars.firstIndex(of: car) ?? "*", "-",
-			  "Производитель: ", car.manufacturer,"\n",
-			  "   Модель: ", car.model,"\n",
-			  "   Тип кузова: ", car.body.rawValue,"\n",
-			  "   Год выпуска: ", car.yearOfIssue ?? "-")
-
-		if (car.carNumber?.count != 0) {
-			print("    Гос. номер: ", car.carNumber ?? "-", "\n")
-		}
+	carsList.forEach { car in
+		print(car)
 	}
 	print(Constants.separator.rawValue)
 }
 
-func filter(){
-	print("Выберите тип кузова для фильтрации:")
-	print(" 1 - Седан \n 2 - купе \n 3 - кабриолет")
-	let bodyIndex: Int = Int(readLine()!) ?? 0
-	let body = bodyTypeIdentifier(bodyIndex: bodyIndex)
-	let filteredData = carsList.filter { $0.body == body }
+func filter() {
+	var bodyToFilter: Car.Body = .undefined
+	while (bodyToFilter == .undefined) {
+		print("Выберите тип кузова для фильтрации:")
+		print(" 0 - Седан \n 1 - купе \n 2 - кабриолет")
+		let bodyIndex: Int = strongReadInt()
+		print("Выбранный № фильтра: \(bodyIndex)")
+		bodyToFilter = Car.Body(index: bodyIndex) ?? .undefined
+		print("Фильтр: \(bodyToFilter)")
+	}
+	let filteredData = carsList.filter {
+		$0.body == bodyToFilter
+	}
 	show(cars: filteredData)
 }
 
-func bodyTypeIdentifier(bodyIndex: Int) -> Body{
-	switch (bodyIndex) {
-	case 1:
-		return .sedan
-	case 2:
-		return .coupe
-	case 3:
-		return .cabriolet
-	default:
-		return .undefined
-	}
-}
+
 
 func append(car: Car) {
 	carsList.append(car)
@@ -108,7 +140,7 @@ func append(car: Car) {
 func add() {
 	var manufacturer: String?
 	var model: String?
-	var body: Body = .undefined
+	var body: Car.Body = .undefined
 	var yearOfIssue: Int?
 	var carNumber: String?
 
@@ -121,14 +153,13 @@ func add() {
 
 	while (body == .undefined) {
 		print("Выберите тип кузова:")
-		print(" 1 - Седан \n 2 - купе \n 3 - кабриолет")
-		let bodyIndex: Int = Int(readLine()!) ?? 0
-		body = bodyTypeIdentifier(bodyIndex: bodyIndex)
+		print(" 0 - Седан \n 1 - купе \n 2 - кабриолет")
+		let bodyIndex: Int = Int(readLine()!) ?? -1
+		body = Car.Body(index: bodyIndex) ?? .undefined
 	}
 
-
 	print("Введите год (или нажмите 'Enter', чтобы пропустить) :")
-	yearOfIssue = Int(readLine()!)
+	yearOfIssue = strongReadInt()
 
 	print("Введите номер автомобиля: (или нажмите 'Enter', чтобы пропустить) :")
 	carNumber = readLine()
@@ -153,8 +184,8 @@ func delete() {
 	show(cars: carsList)
 
 	print("Введите номер из списка на удаление: ")
-	guard let indexToDelete = readLine() else { return }
-	let i: Int = Int(indexToDelete) ?? -1
+	let indexToDelete = strongReadInt()
+	let i: Int = indexToDelete
 	if (carsList.indices.contains(i)) {
 		carsList.remove(at: i)
 		print("Машина под номером", i, "удалена.")
@@ -165,31 +196,59 @@ func delete() {
 	}
 }
 
-func help() {
-	print("\n show - отобразить список \n add - добавить машину \n test - добавить тестовые данные \n delete - удалить машину\n filter - применить фильтр\n exit - выход")
+func strongReadInt() -> Int {
+	if let input = readLine()
+	{
+		if let inputInt = Int(input)
+		{
+			return inputInt
+		}
+		else{
+			print("Неверный ввод")
+			return strongReadInt()
+		}
+	}
+	return -1
 }
 
-var exitFlag: Bool = false
-while (!exitFlag) {
-	print("\nВведите команду:\n(Введите 'help' для вывода списка команд)")
-
-	let command = readLine()
-	switch Commands(rawValue: command!) {
-	case .none:
-		help()
-	case .some(.test):
-		addTestData()
-	case .some(.add):
-		add()
-	case .some(.delete):
-		delete()
-	case .some(.show):
-		show(cars: carsList)
-	case .some(.help):
-		help()
-	case .some(.filter):
-		filter()
-	case .some(.exit):
-		exitFlag = true
+func readCommand() -> Commands {
+	while true {
+		let commandInt = strongReadInt()
+		guard let command = Commands(rawValue: commandInt) else { return .help }
+		return command
 	}
 }
+
+func help() -> String {
+	 return Commands.allCases.reduce(into: "\nВыберите команду") { (result: inout String, command: Commands) in
+		result += "\n" + command.description
+	}
+}
+
+func run() {
+	let prompt = help()
+	print(prompt)
+
+	while true {
+		let command = readCommand()
+		switch command {
+		case .test:
+			addTestData()
+		case .add:
+			add()
+		case .delete:
+			delete()
+		case .show:
+			show(cars: carsList)
+		case .help:
+			let prompt = help()
+			print(prompt)
+		case .filter:
+			filter()
+		case .exit:
+			return
+		}
+	}
+}
+
+run()
