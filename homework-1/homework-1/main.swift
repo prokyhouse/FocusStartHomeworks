@@ -138,18 +138,18 @@ func append(car: Car) {
 }
 
 func add() {
-	var manufacturer: String?
-	var model: String?
+	var manufacturer: String
+	var model: String
 	var body: Car.Body = .undefined
 	var yearOfIssue: Int?
 	var carNumber: String?
 
 	print(Constants.separator.rawValue)
 	print("Введите марку машины:")
-	manufacturer = readLine()
+	manufacturer = strongReadString()
 
 	print("Введите модель:")
-	model = readLine()
+	model = strongReadString()
 
 	while (body == .undefined) {
 		print("Выберите тип кузова:")
@@ -164,8 +164,8 @@ func add() {
 	print("Введите номер автомобиля: (или нажмите 'Enter', чтобы пропустить) :")
 	carNumber = readLine()
 
-	append(car: Car(manufacturer: manufacturer!,
-					model: model!,
+	append(car: Car(manufacturer: manufacturer,
+					model: model,
 					body: body,
 					yearOfIssue: yearOfIssue,
 					carNumber: carNumber))
@@ -209,6 +209,16 @@ func strongReadInt() -> Int {
 		}
 	}
 	return -1
+}
+
+func strongReadString() -> String {
+	while true {
+		if let string = readLine(),
+		   string.isEmpty == false {
+			return string
+		}
+		print("Повторите ввод")
+	}
 }
 
 func readCommand() -> Commands {
