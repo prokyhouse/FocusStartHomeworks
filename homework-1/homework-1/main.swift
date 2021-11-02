@@ -229,9 +229,12 @@ func help() -> String {
 	}
 }
 
+func printHelp() {
+	print(help())
+}
+
 func run() {
-	let prompt = help()
-	print(prompt)
+	printHelp()
 
 	while true {
 		let command = readCommand()
@@ -245,8 +248,7 @@ func run() {
 		case .show:
 			show(cars: carsList)
 		case .help:
-			let prompt = help()
-			print(prompt)
+			printHelp()
 		case .filter:
 			filter()
 		case .exit:
