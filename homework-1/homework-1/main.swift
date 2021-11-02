@@ -56,10 +56,23 @@ struct Car: CustomStringConvertible {
 	let carNumber: String?
 
 	enum Body:  String, CaseIterable {
-		case sedan = "Седан"
-		case coupe = "Купе"
-		case cabriolet = "Кабриолет"
+		case sedan
+		case coupe
+		case cabriolet
 		case undefined
+
+		var description: String {
+			switch self {
+			case .sedan:
+				return "\(self.rawValue) - Седан"
+			case .coupe:
+				return "\(self.rawValue) - Купе"
+			case .cabriolet:
+				return "\(self.rawValue) - Кабриолет"
+			case .undefined:
+				return "\(self.rawValue) - Тип отсутствует"
+			}
+		}
 
 		init?(index: Int) {
 			for (indexEnumerated, value) in Self.allCases.enumerated() {
@@ -96,7 +109,7 @@ func addTestData() {
 	carsList.append(testCar2)
 
 	print(Constants.separator.rawValue)
-	print("Добавлены тестовые данные. Напишите 'show', чтобы отобразить.")
+	print("Добавлены тестовые данные.")
 	print(Constants.separator.rawValue)
 }
 
@@ -151,17 +164,19 @@ func add() {
 	carNumber = readLine()
 
 	carsList.append(Car(manufacturer: manufacturer,
-					model: model,
-					body: body,
-					yearOfIssue: yearOfIssue,
-					carNumber: carNumber))
+						model: model,
+						body: body,
+						yearOfIssue: yearOfIssue,
+						carNumber: carNumber))
 
 	print(Constants.separator.rawValue)
 }
 
 func typeBodyIdentifier() -> Car.Body {
-	print("Выберите тип кузова:")
-	print(" 0 - Седан \n 1 - купе \n 2 - кабриолет")
+	let bodyList: String = Car.Body.allCases.reduce(into: "\nВыберите тип кузова:") { (result: inout String, car: Car.Body) in
+		result += "\n" + car.description
+	}
+	print(bodyList)
 	let bodyIndex: Int = strongReadInt()
 	let body = Car.Body(index: bodyIndex) ?? .undefined
 	return body
@@ -224,7 +239,7 @@ func readCommand() -> Commands {
 }
 
 func help() -> String {
-	 return Commands.allCases.reduce(into: "\nВыберите команду") { (result: inout String, command: Commands) in
+	return Commands.allCases.reduce(into: "\nВыберите команду") { (result: inout String, command: Commands) in
 		result += "\n" + command.description
 	}
 }
