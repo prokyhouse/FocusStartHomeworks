@@ -118,12 +118,7 @@ func show(cars: [Car]) {
 func filter() {
 	var bodyToFilter: Car.Body = .undefined
 	while (bodyToFilter == .undefined) {
-		print("Выберите тип кузова для фильтрации:")
-		print(" 0 - Седан \n 1 - купе \n 2 - кабриолет")
-		let bodyIndex: Int = strongReadInt()
-		print("Выбранный № фильтра: \(bodyIndex)")
-		bodyToFilter = Car.Body(index: bodyIndex) ?? .undefined
-		print("Фильтр: \(bodyToFilter)")
+		bodyToFilter = typeBodyIdentifier()
 	}
 	let filteredData = carsList.filter {
 		$0.body == bodyToFilter
@@ -146,10 +141,7 @@ func add() {
 	model = strongReadString()
 
 	while (body == .undefined) {
-		print("Выберите тип кузова:")
-		print(" 0 - Седан \n 1 - купе \n 2 - кабриолет")
-		let bodyIndex: Int = strongReadInt()
-		body = Car.Body(index: bodyIndex) ?? .undefined
+		body = typeBodyIdentifier()
 	}
 
 	print("Введите год (или нажмите 'Enter', чтобы пропустить) :")
@@ -165,6 +157,14 @@ func add() {
 					carNumber: carNumber))
 
 	print(Constants.separator.rawValue)
+}
+
+func typeBodyIdentifier() -> Car.Body {
+	print("Выберите тип кузова:")
+	print(" 0 - Седан \n 1 - купе \n 2 - кабриолет")
+	let bodyIndex: Int = strongReadInt()
+	let body = Car.Body(index: bodyIndex) ?? .undefined
+	return body
 }
 
 func delete() {
