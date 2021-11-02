@@ -92,8 +92,8 @@ func addTestData() {
 							body: .cabriolet,
 							yearOfIssue: 2012,
 							carNumber: "у236ох")
-	append(car: testCar1)
-	append(car: testCar2)
+	carsList.append(testCar1)
+	carsList.append(testCar2)
 
 	print(Constants.separator.rawValue)
 	print("Добавлены тестовые данные. Напишите 'show', чтобы отобразить.")
@@ -131,12 +131,6 @@ func filter() {
 	show(cars: filteredData)
 }
 
-
-
-func append(car: Car) {
-	carsList.append(car)
-}
-
 func add() {
 	var manufacturer: String
 	var model: String
@@ -164,7 +158,7 @@ func add() {
 	print("Введите номер автомобиля: (или нажмите 'Enter', чтобы пропустить) :")
 	carNumber = readLine()
 
-	append(car: Car(manufacturer: manufacturer,
+	carsList.append(Car(manufacturer: manufacturer,
 					model: model,
 					body: body,
 					yearOfIssue: yearOfIssue,
