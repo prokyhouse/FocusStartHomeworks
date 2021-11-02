@@ -87,9 +87,7 @@ struct Car: CustomStringConvertible {
 	}
 }
 
-enum Constants: String {
-	case separator = "-------------------------------------"
-}
+let separator: String = "-------------------------------------"
 
 var carsList: [Car] = []
 
@@ -108,24 +106,24 @@ func addTestData() {
 	carsList.append(testCar1)
 	carsList.append(testCar2)
 
-	print(Constants.separator.rawValue)
+	print(separator)
 	print("Добавлены тестовые данные.")
-	print(Constants.separator.rawValue)
+	print(separator)
 }
 
 func show(cars: [Car]) {
-	print(Constants.separator.rawValue)
+	print(separator)
 
 	if carsList.isEmpty {
 		print("Список пуст.")
-		print(Constants.separator.rawValue)
+		print(separator)
 		return
 	}
 
 	carsList.forEach { car in
 		print(car)
 	}
-	print(Constants.separator.rawValue)
+	print(separator)
 }
 
 func filter() {
@@ -146,7 +144,7 @@ func add() {
 	var yearOfIssue: Int?
 	var carNumber: String?
 
-	print(Constants.separator.rawValue)
+	print(separator)
 	print("Введите марку машины:")
 	manufacturer = strongReadString()
 
@@ -169,7 +167,7 @@ func add() {
 						yearOfIssue: yearOfIssue,
 						carNumber: carNumber))
 
-	print(Constants.separator.rawValue)
+	print(separator)
 }
 
 func typeBodyIdentifier() -> Car.Body {
@@ -189,7 +187,7 @@ func delete() {
 		return
 	}
 
-	print(Constants.separator.rawValue)
+	print(separator)
 	show(cars: carsList)
 
 	print("Введите номер из списка на удаление: ")
@@ -198,7 +196,7 @@ func delete() {
 	if (carsList.indices.contains(i)) {
 		carsList.remove(at: i)
 		print("Машина под номером", i, "удалена.")
-		print(Constants.separator.rawValue)
+		print(separator)
 	} else {
 		print("Номер введен неверно.")
 		delete()
