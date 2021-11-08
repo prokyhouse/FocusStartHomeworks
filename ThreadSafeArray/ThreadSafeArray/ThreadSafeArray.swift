@@ -21,8 +21,11 @@ public final class ThreadSafeArray<T> {
 	}
 	
 	public func remove(at index: Int) {
-		queue.async(flags: .barrier) { [weak self] in
-			self?.array.remove(at: index)
+		queue.sync(flags: .barrier) {
+			guard self.array.indices.contains(index) else {
+				fatalError("index is out of range")
+			}
+			self.array.remove(at: index)
 		}
 	}
 	
