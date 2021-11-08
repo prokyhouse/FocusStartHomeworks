@@ -14,31 +14,31 @@ public final class ThreadSafeArray<T> {
 	private let queue = DispatchQueue(label: "ThreadSafeArrayQueue",
 									  attributes: .concurrent)
 	
-	func append(_ item: T) {
+	public func append(_ item: T) {
 		queue.async(flags: .barrier) { [weak self] in
 			self?.array.append(item)
 		}
 	}
 	
-	func remove(at index: Int) {
+	public func remove(at index: Int) {
 		queue.async(flags: .barrier) { [weak self] in
 			self?.array.remove(at: index)
 		}
 	}
 	
-	var isEmpty: Bool {
+	public var isEmpty: Bool {
 		queue.sync {
 			return self.array.isEmpty
 		}
 	}
 	
-	var count: Int {
+	public var count: Int {
 		queue.sync {
 			return self.array.count
 		}
 	}
 	
-	subscript(index: Int) -> T {
+	public subscript(index: Int) -> T {
 		queue.sync {
 			return self.array[index]
 		}
@@ -46,7 +46,7 @@ public final class ThreadSafeArray<T> {
 }
 
 extension ThreadSafeArray where T: Equatable {
-	func contains(_ element: T) -> Bool {
+	public func contains(_ element: T) -> Bool {
 		queue.sync {
 			return (self.array.firstIndex(of: element) != nil) ? true : false
 		}
