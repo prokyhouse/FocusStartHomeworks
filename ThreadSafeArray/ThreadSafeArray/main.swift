@@ -12,7 +12,7 @@ var threadSafeArray = ThreadSafeArray<String>()
 let queue = DispatchQueue(label: "ThreadSafeArrayQueue",
 							  attributes: .concurrent)
 
-let group = DispatchGroup.init()
+let group = DispatchGroup()
 
 queue.async(group: group) {
 	for i in 0...1000 {
