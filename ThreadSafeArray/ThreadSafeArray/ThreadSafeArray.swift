@@ -47,8 +47,6 @@ public final class ThreadSafeArray<T> {
 
 extension ThreadSafeArray where T: Equatable {
 	public func contains(_ element: T) -> Bool {
-		queue.sync {
-			return (self.array.firstIndex(of: element) != nil) ? true : false
-		}
+		return queue.sync { self.array.contains(element) }
 	}
 }
