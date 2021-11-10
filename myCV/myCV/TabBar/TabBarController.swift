@@ -1,17 +1,18 @@
 //
-//  TabBarViewController.swift
+//  TabBarController.swift
 //  myCV
 //
-//  Created by Кирилл Прокофьев on 09.11.2021.
+//  Created by Кирилл Прокофьев on 10.11.2021.
 //
 
 import Foundation
 import UIKit
 
-class TabBarViewController: UITabBarController {
+class TabBarController: UITabBarController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.tabBar.tintColor = UIColor(named: "RedTint")
+		self.tabBar.tintColor = UIColor.red
+		
 	}
 
 	func set(viewControllers: [UIViewController]) {

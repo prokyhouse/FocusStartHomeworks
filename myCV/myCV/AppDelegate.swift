@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  myCV
 //
-//  Created by Кирилл Прокофьев on 09.11.2021.
+//  Created by Кирилл Прокофьев on 10.11.2021.
 //
 
 import UIKit
