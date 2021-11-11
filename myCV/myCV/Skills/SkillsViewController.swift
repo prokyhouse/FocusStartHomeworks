@@ -14,7 +14,6 @@ protocol ISkillsViewController: UIViewController {
 class SkillsViewController: UIViewController, ISkillsViewController {
 
 	init() {
-		//self.presenter = presenter
 		super.init(nibName: nil, bundle: nil)
 	}
 
@@ -27,7 +26,6 @@ class SkillsViewController: UIViewController, ISkillsViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
 	}
 
 }
