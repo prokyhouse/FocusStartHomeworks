@@ -60,9 +60,12 @@ class SkillView: UIView {
 		self.titleLabel.textAlignment = .center
 		self.titleLabel.adjustsFontSizeToFitWidth = true
 
+		self.descriptionLabel.font = UIFont.Callout.medium
 		self.descriptionLabel.textColor = .white
 		self.descriptionLabel.textAlignment = .left
-		self.descriptionLabel.adjustsFontSizeToFitWidth = true
+		self.descriptionLabel.numberOfLines = 8
+		self.descriptionLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+		//self.descriptionLabel.adjustsFontSizeToFitWidth = true
 
 		self.sinceLabel.textAlignment = .center
 		self.sinceLabel.textColor = .white

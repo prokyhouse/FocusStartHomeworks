@@ -41,7 +41,11 @@ class SkillsView: UIView {
 		self.androidSkill.setContent(model: SkillView.SkillContent(
 			skillModel: Skill(logo: UIImage(named: "Android"),
 							  title: "Android-разработка",
-							  description: "текст",
+							  description: """
+• окончил SAMSUNG IT SCHOOL в 2017
+• Победитель конкурса проектов "SAMSUNG выбирает сильнейших" 2017
+• Выпустил приложение в Google Play
+""",
 							  since: "с 2016 года",
 							  gradients:
 								ColorGradient(
@@ -51,7 +55,11 @@ class SkillsView: UIView {
 		self.vrSkill.setContent(model: SkillView.SkillContent(
 			skillModel: Skill(logo: UIImage(named: "VR"),
 							  title: "VR-разработка",
-							  description: "текст",
+							  description: """
+• выпускник Samsung ШКОЛА VR 360
+• Победитель всероссийского конкурса проектов "VR 360"
+• Выпустил приложение в Unity Asset Store (Samsung написал статью о нас на офф.сайте)
+""",
 							  since: "с 2017 года",
 							  gradients:
 								ColorGradient(
@@ -61,7 +69,11 @@ class SkillsView: UIView {
 		self.iosSkill.setContent(model: SkillView.SkillContent(
 			skillModel: Skill(logo: UIImage(named: "IOS"),
 							  title: "iOS-разработка",
-							  description: "текст",
+							  description: """
+• Выпускник ШИФТЛАБ 2020/21 (TeamCFT)
+• Разработчик оф. приложения НГУ для iOS (В январе релиз в AppStore)
+• Участник ЦФТ FocusStart 2021/22
+""",
 							  since: "с 2020 года",
 							  gradients:
 								ColorGradient(
@@ -71,7 +83,10 @@ class SkillsView: UIView {
 		self.otherSkills.setContent(model: SkillView.SkillContent(
 			skillModel: Skill(logo: UIImage(systemName: "bolt.circle.fill"),
 							  title: "Прочие навыки",
-							  description: "текст",
+							  description: """
+• 3 место в Kaspersky CYBERHEROES 2016
+• Middle Project manager (работаю в IT-компании в Казани)
+""",
 							  since: "с 2020 года",
 							  gradients:
 								ColorGradient(
@@ -105,25 +120,21 @@ class SkillsView: UIView {
 		self.androidSkill.snp.makeConstraints { make in
 			make.left.right.equalTo(self.contentView).inset(9)
 			make.top.equalTo(self.contentView).offset(9)
-			make.height.equalTo(190)
 		}
 
 		self.vrSkill.snp.makeConstraints { make in
 			make.left.right.equalTo(self.contentView).inset(9)
 			make.top.equalTo(self.androidSkill.snp.bottom).offset(9)
-			make.height.equalTo(190)
 		}
 
 		self.iosSkill.snp.makeConstraints { make in
 			make.left.right.equalTo(self.contentView).inset(9)
 			make.top.equalTo(self.vrSkill.snp.bottom).offset(9)
-			make.height.equalTo(190)
 		}
 
 		self.otherSkills.snp.makeConstraints { make in
 			make.left.right.equalTo(self.contentView).inset(9)
 			make.top.equalTo(self.iosSkill.snp.bottom).offset(9)
-			make.height.equalTo(190)
 		}
 	}
 }

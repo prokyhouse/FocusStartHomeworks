@@ -27,15 +27,21 @@ class ProfileView: UIView {
 			self.mainInfoTitle = "О себе"
 			self.skillsTitle = "Навыки разработчика"
 			self.interests = """
-Фотография, дизайн, IT, бизнес, учёба, котики
-Фотография, дизайн, IT, бизнес, учёба, котики
-Фотография, дизайн, IT, бизнес, учёба, котики
+Фотография, дизайн мобильных приложений, IT, бизнес, учёба, котики.
 """
 			self.mainInfo = """
-Фотография, дизайн, IT, бизнес, учёба, котики
+• родился 23 мая 2000
+• Неоконченное высшее образование (ФИТ НГУ, направление "CS and System Design")
+• Профессиональный фотограф
+• Дизайнер
+• Android (Java) и iOS программист
+• Предприниматель (владею брендом одежды)
+• И просто НГУшник 🏄🏻‍♂️
 """
 			self.skills = """
-Фотография, дизайн, IT, бизнес, учёба, котики
+Имею опыт работы в команде над различными IT-проектами под iOS/Android и VR.
+Постоянно обучаюсь, помимо учёбы в НГУ (на факультете информационных технологий), изучаю мобильную разработку, менеджмент и дизайн/прототипирование интерфейсов.
+Имею практический опыт в менеджменте - на теущий момент работаю Middle Project manager'ом в Казанской IT-компании.
 """
 		}
 	}
@@ -69,9 +75,12 @@ class ProfileView: UIView {
 	internal func setContent(model: ProfileContent) {
 		self.nameLabel.text = model.name
 		self.bioLabel.text = model.bio
-		self.mainBlock.setContent(model: DescriptionView.DescriptionContent(model: InformationBlock(title: model.mainInfoTitle, description: model.mainInfo)))
-		self.interestsBlock.setContent(model: DescriptionView.DescriptionContent(model: InformationBlock(title: model.interestsTitle, description: model.interests)))
-		self.skillsBlock.setContent(model: DescriptionView.DescriptionContent(model: InformationBlock(title: model.skillsTitle, description: model.skills)))
+		self.mainBlock.setContent(model: DescriptionView.DescriptionContent(model: InformationBlock(title: model.mainInfoTitle,
+																									description: model.mainInfo)))
+		self.interestsBlock.setContent(model: DescriptionView.DescriptionContent(model: InformationBlock(title: model.interestsTitle,
+																										 description: model.interests)))
+		self.skillsBlock.setContent(model: DescriptionView.DescriptionContent(model: InformationBlock(title: model.skillsTitle,
+																									  description: model.skills)))
 	}
 
 	private func addSubviews() {
@@ -122,7 +131,6 @@ class ProfileView: UIView {
 			contentView.rightAnchor.constraint(equalTo: self.scrollView.rightAnchor),
 			contentView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
 			contentView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor, constant: -40),
-
 			contentView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor),
 			contentView.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor)
 		]
@@ -134,7 +142,6 @@ class ProfileView: UIView {
 			profileCardView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 9),
 			profileCardView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -9),
 			profileCardView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 9),
-
 			profileCardView.widthAnchor.constraint(equalToConstant: 355),
 			profileCardView.heightAnchor.constraint(equalToConstant: 71)
 		]
@@ -147,9 +154,7 @@ class ProfileView: UIView {
 			mainBlock.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
 			mainBlock.topAnchor.constraint(equalTo: self.profileCardView.bottomAnchor, constant: 9),
 			mainBlock.bottomAnchor.constraint(equalTo: self.interestsBlock.topAnchor),
-
 			mainBlock.widthAnchor.constraint(equalToConstant: 375)
-			// mainBlock.heightAnchor.constraint(equalToConstant: 138)
 		]
 
 		NSLayoutConstraint.activate(mainBlockConstraints)
@@ -159,9 +164,7 @@ class ProfileView: UIView {
 			interestsBlock.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
 			interestsBlock.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
 			interestsBlock.topAnchor.constraint(equalTo: self.mainBlock.bottomAnchor, constant: 9),
-
 			interestsBlock.widthAnchor.constraint(equalToConstant: 375)
-			// interestsBlock.heightAnchor.constraint(equalToConstant: 138)
 		]
 
 		NSLayoutConstraint.activate(interestsBlockConstraints)
@@ -171,9 +174,7 @@ class ProfileView: UIView {
 			skillsBlock.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
 			skillsBlock.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
 			skillsBlock.topAnchor.constraint(equalTo: self.interestsBlock.bottomAnchor, constant: 9),
-
 			skillsBlock.widthAnchor.constraint(equalToConstant: 375)
-			// skillsBlock.heightAnchor.constraint(equalToConstant: 138)
 		]
 
 		NSLayoutConstraint.activate(skillsBlockConstraints)
@@ -184,7 +185,6 @@ class ProfileView: UIView {
 			nameLabel.rightAnchor.constraint(equalTo: self.profileCardView.rightAnchor, constant: -30),
 			nameLabel.topAnchor.constraint(equalTo: self.profileCardView.topAnchor, constant: 18),
 			nameLabel.bottomAnchor.constraint(equalTo: self.profileCardView.bottomAnchor, constant: -31),
-
 			nameLabel.widthAnchor.constraint(equalToConstant: 26),
 			nameLabel.heightAnchor.constraint(equalToConstant: 250)
 		]
@@ -197,7 +197,6 @@ class ProfileView: UIView {
 			bioLabel.rightAnchor.constraint(equalTo: self.profileCardView.rightAnchor, constant: -30),
 			bioLabel.topAnchor.constraint(equalTo: self.profileCardView.topAnchor, constant: 40),
 			bioLabel.bottomAnchor.constraint(equalTo: self.profileCardView.bottomAnchor, constant: -15),
-
 			bioLabel.widthAnchor.constraint(equalToConstant: 16),
 			bioLabel.heightAnchor.constraint(equalToConstant: 250)
 		]
@@ -209,7 +208,6 @@ class ProfileView: UIView {
 			avatar.leftAnchor.constraint(equalTo: self.profileCardView.leftAnchor, constant: 19),
 			avatar.topAnchor.constraint(equalTo: self.profileCardView.topAnchor, constant: 13),
 			avatar.bottomAnchor.constraint(equalTo: self.profileCardView.bottomAnchor, constant: -13),
-
 			avatar.widthAnchor.constraint(equalToConstant: 45),
 			avatar.heightAnchor.constraint(equalToConstant: 45)
 		]
