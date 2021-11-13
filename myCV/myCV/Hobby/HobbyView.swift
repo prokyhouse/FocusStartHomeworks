@@ -39,7 +39,6 @@ class HobbyView: UIView {
 //		}
 //	}
 
-
 	private let photoView = UIImageView()
 	internal let instagramButton = UIButton()
 	private let titleLabel = UILabel()
@@ -80,7 +79,7 @@ class HobbyView: UIView {
 		self.instagramButton.setTitleColor(.black, for: .highlighted)
 		self.instagramButton.titleLabel?.adjustsFontSizeToFitWidth = true
 		self.instagramButton.layer.cornerRadius = 10
-		//self.instagramButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+		// self.instagramButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
 
 		self.titleLabel.textColor = .white
 
@@ -96,8 +95,6 @@ class HobbyView: UIView {
 		self.descriptionLabel.numberOfLines = 8
 		self.descriptionLabel.adjustsFontSizeToFitWidth = true
 	}
-
-
 
 	internal func setContent(model: HobbyContent) {
 		self.photoView.image = UIImage(named: model.photoName)
@@ -135,7 +132,7 @@ class HobbyView: UIView {
 		}
 
 		self.instagramButton.snp.makeConstraints { make in
-			//make.left.right.equalTo(self.contentView).inset(67)
+			// make.left.right.equalTo(self.contentView).inset(67)
 			make.top.equalTo(self.titleLabel.snp.bottom).offset(20)
 			make.centerX.equalTo(self.contentView.snp.centerX)
 			make.width.equalTo(240)
@@ -145,8 +142,8 @@ class HobbyView: UIView {
 		self.descriptionLabel.snp.makeConstraints { make in
 			make.left.right.equalTo(self.contentView).inset(19)
 			make.top.equalTo(self.instagramButton.snp.bottom).offset(20)
-			//make.bottom.equalTo(self.contentView.snp.bottom).offset(-60)
-			//make.height.equalTo(100)
+			// make.bottom.equalTo(self.contentView.snp.bottom).offset(-60)
+			// make.height.equalTo(100)
 		}
 	}
 }

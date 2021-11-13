@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 extension UIStackView {
-	func setupStackView(alignment:Alignment,distribution:Distribution,axis:NSLayoutConstraint.Axis,spacing:CGFloat,view:UIView){
+	func setupStackView(alignment: Alignment, distribution: Distribution, axis: NSLayoutConstraint.Axis, spacing: CGFloat, view: UIView) {
 		view.addSubview(self)
 		self.alignment = alignment
 		self.distribution = distribution
@@ -16,7 +16,7 @@ extension UIStackView {
 		self.spacing = spacing
 
 	}
-	func addArrangedSubview(views:[UIView]){
+	func addArrangedSubview(views: [UIView]) {
 		views.forEach { (view) in
 			self.addArrangedSubview(view)
 		}

@@ -26,8 +26,6 @@ class SkillsView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-
-
 	private func configure() {
 		self.setConfig()
 		self.setContent()

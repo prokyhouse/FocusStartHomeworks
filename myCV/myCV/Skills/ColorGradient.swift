@@ -10,5 +10,5 @@ import UIKit
 
 struct ColorGradient {
 	var colorTop: UIColor
-	var colorBottom:UIColor
+	var colorBottom: UIColor
 }

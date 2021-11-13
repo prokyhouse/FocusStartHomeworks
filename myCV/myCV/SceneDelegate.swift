@@ -22,7 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	}
 }
 
-
 private extension SceneDelegate {
 	func createTabs() -> UITabBarController {
 		let tabBar = UITabBarController()

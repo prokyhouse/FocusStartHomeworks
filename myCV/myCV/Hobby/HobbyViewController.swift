@@ -19,7 +19,7 @@ class HobbyViewController: UIViewController, IHobbyViewController {
 		super.viewDidLoad()
 		self.hobbyView.instagramButton.addTarget(self, action: #selector(shareInstagram), for: .touchUpInside)
 	}
-	
+
 	override func loadView() {
 		self.view = self.hobbyView
 	}
@@ -27,7 +27,7 @@ class HobbyViewController: UIViewController, IHobbyViewController {
 	@IBAction func shareInstagram(_ sender: Any) {
 		self.presentShareSheet(url: "https://instagram.com/prokofyev.k")
 	}
-	
+
 	internal func presentShareSheet(url: String) {
 		guard let url = URL(string: url) else {
 			return

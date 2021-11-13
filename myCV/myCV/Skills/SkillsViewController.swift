@@ -13,13 +13,11 @@ class SkillsViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		//self.view.setGradientBackground(colorTop: .green, colorBottom: .blue, cornerRadius: 0)
+		// self.view.setGradientBackground(colorTop: .green, colorBottom: .blue, cornerRadius: 0)
 	}
-	
+
 	override func loadView() {
 		self.view = self.skillsView
 	}
-
-
 
 }

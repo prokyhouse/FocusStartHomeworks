@@ -67,7 +67,7 @@ class DescriptionView: UIView {
 								 for: .normal)
 		self.arrowImage.setImage(UIImage(systemName: "chevron.up"),
 								 for: .selected)
-		self.arrowImage.addTarget(self, action:#selector(self.buttonTapped),
+		self.arrowImage.addTarget(self, action: #selector(self.buttonTapped),
 								  for: .touchUpInside)
 
 		self.descriptionTitle.font = UIFont.Title.medium
@@ -77,7 +77,7 @@ class DescriptionView: UIView {
 		self.descriptionLabel.numberOfLines = 50
 	}
 
-	var descriptionLabelConstraints : [NSLayoutConstraint] = []
+	var descriptionLabelConstraints: [NSLayoutConstraint] = []
 
 	private func setConstraints() {
 
@@ -91,7 +91,7 @@ class DescriptionView: UIView {
 												   constant: 9),
 			descriptionTitle.rightAnchor.constraint(equalTo: self.arrowImage.leftAnchor,
 													constant: -16),
-			descriptionTitle.bottomAnchor.constraint(equalTo: self.descriptionLabel.topAnchor,constant: -16)
+			descriptionTitle.bottomAnchor.constraint(equalTo: self.descriptionLabel.topAnchor, constant: -16)
 		]
 
 		NSLayoutConstraint.activate(descriptionTitleConstraints)
@@ -100,7 +100,6 @@ class DescriptionView: UIView {
 		descriptionLabelConstraints = [
 			descriptionLabel.widthAnchor.constraint(equalTo: self.descriptionTitle.widthAnchor),
 			descriptionLabel.heightAnchor.constraint(equalToConstant: descriptionLabelMinHeight),
-
 
 			descriptionLabel.leftAnchor.constraint(equalTo: self.descriptionTitle.leftAnchor),
 			descriptionLabel.rightAnchor.constraint(equalTo: self.descriptionTitle.rightAnchor),
@@ -118,7 +117,7 @@ class DescriptionView: UIView {
 			arrowImage.topAnchor.constraint(equalTo: self.topAnchor,
 											constant: 20),
 			arrowImage.rightAnchor.constraint(equalTo: self.rightAnchor,
-											  constant: -16),
+											  constant: -16)
 
 		]
 
@@ -128,16 +127,16 @@ class DescriptionView: UIView {
 		let separatorConstraints = [
 			separator.heightAnchor.constraint(equalToConstant: 1),
 			separator.topAnchor.constraint(equalTo: self.bottomAnchor),
-			separator.rightAnchor.constraint(equalTo: self.rightAnchor,constant: -9),
-			separator.leftAnchor.constraint(equalTo: self.leftAnchor,constant: 9)
+			separator.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -9),
+			separator.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 9)
 		]
 
 		NSLayoutConstraint.activate(separatorConstraints)
 
 		let descriptionViewConstraints = [
 			self.widthAnchor.constraint(equalToConstant: 375),
-			self.bottomAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor,constant: 16),
-			self.topAnchor.constraint(equalTo: self.descriptionTitle.topAnchor,constant: -16)
+			self.bottomAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 16),
+			self.topAnchor.constraint(equalTo: self.descriptionTitle.topAnchor, constant: -16)
 		]
 
 		NSLayoutConstraint.activate(descriptionViewConstraints)
@@ -159,7 +158,7 @@ private extension DescriptionView {
 		self.arrowImage.transform = self.arrowImage.transform.rotated(by: CGFloat(angle))
 		self.toggleTextHeight()
 	}
-	
+
 	func toggleTextHeight() {
 		let height: CGFloat = {
 			if self.opened {

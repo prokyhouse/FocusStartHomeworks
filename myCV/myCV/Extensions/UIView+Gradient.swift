@@ -18,7 +18,7 @@ extension UIView {
 		self.layer.insertSublayer(gradientLayer, at: 0)
 	}
 
-	func setGradientBackground(colorTop: UIColor, colorBottom: UIColor, startY: Double,endY: Double) {
+	func setGradientBackground(colorTop: UIColor, colorBottom: UIColor, startY: Double, endY: Double) {
 		let gradientLayer = CAGradientLayer()
 		gradientLayer.frame = self.bounds
 		gradientLayer.colors = [colorTop.cgColor, colorBottom.cgColor]

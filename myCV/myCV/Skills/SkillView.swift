@@ -32,7 +32,7 @@ class SkillView: UIView {
 	internal let descriptionLabel = UILabel()
 	internal let sinceLabel = UILabel()
 	internal var gradient = ColorGradient(colorTop: .systemRed, colorBottom: .systemIndigo)
-	
+
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.configure()
@@ -41,7 +41,7 @@ class SkillView: UIView {
 	public required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
+
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		self.setGradientBackground(colorTop: gradient.colorTop, colorBottom: gradient.colorBottom, cornerRadius: 12)
