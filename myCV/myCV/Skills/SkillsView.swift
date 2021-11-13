@@ -87,7 +87,7 @@ class SkillsView: UIView {
 • 3 место в Kaspersky CYBERHEROES 2016
 • Middle Project manager (работаю в IT-компании в Казани)
 """,
-							  since: "с 2020 года",
+							  since: "",
 							  gradients:
 								ColorGradient(
 									colorTop: UIColor.init(hex: "aa076b") ?? .systemBlue,
@@ -114,7 +114,7 @@ class SkillsView: UIView {
 			make.bottom.equalTo(self.scrollView).offset(-40)
 
 			make.width.equalTo(self.scrollView)
-			make.height.equalTo(self.scrollView)
+			make.height.equalTo(960)
 		}
 
 		self.androidSkill.snp.makeConstraints { make in

@@ -117,6 +117,8 @@ class ProfileView: UIView {
 
 		scrollView.translatesAutoresizingMaskIntoConstraints = false
 		let scrollViewConstraints = [
+			scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+			scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
 			scrollView.leftAnchor.constraint(equalTo: self.leftAnchor),
 			scrollView.rightAnchor.constraint(equalTo: self.rightAnchor),
 			scrollView.topAnchor.constraint(equalTo: self.topAnchor),
@@ -131,6 +133,7 @@ class ProfileView: UIView {
 			contentView.rightAnchor.constraint(equalTo: self.scrollView.rightAnchor),
 			contentView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
 			contentView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor, constant: -40),
+			contentView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
 			contentView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor),
 			contentView.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor)
 		]
