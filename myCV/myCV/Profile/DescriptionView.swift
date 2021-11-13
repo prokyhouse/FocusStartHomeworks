@@ -61,7 +61,7 @@ class DescriptionView: UIView {
 	}
 
 	private func setConfig() {
-		self.separator.backgroundColor = UIColor.init(hex: "F5F5F5")
+		self.separator.backgroundColor = UIColor(named: "Field")
 
 		self.arrowImage.setImage(UIImage(systemName: "chevron.down"),
 								 for: .normal)

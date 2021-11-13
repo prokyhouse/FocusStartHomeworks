@@ -89,18 +89,17 @@ class ProfileView: UIView {
 	}
 
 	private func setConfig() {
-		self.backgroundColor = UIColor.white
+		self.backgroundColor = UIColor(named: "Background")
 		
 
-		self.profileCardView.backgroundColor = UIColor.init(hex: "F5F5F5")
+		self.profileCardView.backgroundColor = UIColor(named: "Field")
 		self.profileCardView.layer.cornerRadius = 10
 
 		self.nameLabel.font = UIFont.Title.large
-		self.nameLabel.textColor = UIColor.black
 		self.nameLabel.adjustsFontSizeToFitWidth = true
 
 		self.bioLabel.font = UIFont.Footnote.small
-		self.bioLabel.textColor = UIColor.red
+		self.bioLabel.textColor = UIColor(named: "AccentColor")
 		self.bioLabel.adjustsFontSizeToFitWidth = true
 
 		self.avatar.layer.cornerRadius = self.avatar.frame.size.width/2

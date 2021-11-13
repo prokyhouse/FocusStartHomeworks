@@ -36,7 +36,7 @@ class SkillsView: UIView {
 	}
 
 	private func setConfig() {
-		self.backgroundColor = .white
+		self.backgroundColor = UIColor(named: "Background")
 	}
 
 	private func setContent() {
@@ -77,8 +77,8 @@ class SkillsView: UIView {
 							  since: "с 2020 года",
 							  gradients:
 								ColorGradient(
-									colorTop: UIColor.init(hex: "ff9966") ?? .systemBlue,
-									colorBottom: UIColor.init(hex: "ff5e62") ?? .systemGreen))))
+									colorTop: UIColor.init(hex: "aa076b") ?? .systemBlue,
+									colorBottom: UIColor.init(hex: "61045f") ?? .systemGreen))))
 	}
 
 	private func addSubviews() {
