@@ -8,24 +8,18 @@
 import Foundation
 import UIKit
 
-protocol ISkillsViewController: UIViewController {
-}
-
-class SkillsViewController: UIViewController, ISkillsViewController {
-
-	init() {
-		super.init(nibName: nil, bundle: nil)
-	}
-
-	required init?(coder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
-
-	override func loadView() {
-	}
+class SkillsViewController: UIViewController {
+	private var skillsView: SkillsView = SkillsView()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		//self.view.setGradientBackground(colorTop: .green, colorBottom: .blue, cornerRadius: 0)
 	}
+	
+	override func loadView() {
+		self.view = self.skillsView
+	}
+
+
 
 }

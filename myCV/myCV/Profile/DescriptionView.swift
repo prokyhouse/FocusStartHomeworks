@@ -14,7 +14,7 @@ class DescriptionView: UIView {
 		internal let title: String
 		internal let description: String
 
-		internal init(model: informationBlock) {
+		internal init(model: InformationBlock) {
 			self.title = model.title
 			self.description = model.description
 		}

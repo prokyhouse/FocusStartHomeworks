@@ -60,19 +60,19 @@ class ProfileView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	internal func setContent(model: ProfileContent) {
-		self.nameLabel.text = model.name
-		self.bioLabel.text = model.bio
-		self.mainBlock.setContent(model: DescriptionView.DescriptionContent(model: informationBlock(title: model.mainInfoTitle, description: model.mainInfo)))
-		self.interestsBlock.setContent(model: DescriptionView.DescriptionContent(model: informationBlock(title: model.interestsTitle, description: model.interests)))
-		self.skillsBlock.setContent(model: DescriptionView.DescriptionContent(model: informationBlock(title: model.skillsTitle, description: model.skills)))
-	}
-
 	private func configure() {
 		self.setConfig()
 		self.setContent(model: ProfileContent.init())
 		self.addSubviews()
 		self.setConstraints()
+	}
+
+	internal func setContent(model: ProfileContent) {
+		self.nameLabel.text = model.name
+		self.bioLabel.text = model.bio
+		self.mainBlock.setContent(model: DescriptionView.DescriptionContent(model: InformationBlock(title: model.mainInfoTitle, description: model.mainInfo)))
+		self.interestsBlock.setContent(model: DescriptionView.DescriptionContent(model: InformationBlock(title: model.interestsTitle, description: model.interests)))
+		self.skillsBlock.setContent(model: DescriptionView.DescriptionContent(model: InformationBlock(title: model.skillsTitle, description: model.skills)))
 	}
 
 	private func addSubviews() {

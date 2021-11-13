@@ -14,8 +14,8 @@
         <!--Скиллы-->
         <scene sceneID="s2X-QE-Fac">
             <objects>
-                <viewController id="sIa-l1-w79" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PNT-iE-V1o" customClass="SkillsView" customModule="myCV" customModuleProvider="target">
+                <viewController id="sIa-l1-w79" customClass="SkillsViewController" customModule="myCV" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PNT-iE-V1o">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="DW6-Zj-MNM"/>
