@@ -84,14 +84,12 @@ class DescriptionView: UIView {
 		descriptionTitle.translatesAutoresizingMaskIntoConstraints = false
 		let descriptionTitleConstraints = [
 			descriptionTitle.heightAnchor.constraint(equalToConstant: 26),
-
 			descriptionTitle.topAnchor.constraint(equalTo: self.topAnchor,
 												  constant: 16),
 			descriptionTitle.leftAnchor.constraint(equalTo: self.leftAnchor,
 												   constant: 9),
 			descriptionTitle.rightAnchor.constraint(equalTo: self.arrowImage.leftAnchor,
 													constant: -16),
-			descriptionTitle.bottomAnchor.constraint(equalTo: self.descriptionLabel.topAnchor, constant: -16)
 		]
 
 		NSLayoutConstraint.activate(descriptionTitleConstraints)
@@ -134,9 +132,7 @@ class DescriptionView: UIView {
 		NSLayoutConstraint.activate(separatorConstraints)
 
 		let descriptionViewConstraints = [
-			self.widthAnchor.constraint(equalToConstant: 375),
 			self.bottomAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 16),
-			self.topAnchor.constraint(equalTo: self.descriptionTitle.topAnchor, constant: -16)
 		]
 
 		NSLayoutConstraint.activate(descriptionViewConstraints)
