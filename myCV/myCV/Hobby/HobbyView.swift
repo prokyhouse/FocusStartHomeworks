@@ -9,12 +9,11 @@ import Foundation
 import UIKit
 import SnapKit
 
-protocol IHobbyView: AnyObject {
-	var onShare: (() -> Void)? { get set }
-}
-
 class HobbyView: UIView {
-	var onShare: (() -> Void)?
+
+	private enum Metrics {
+		static let spaceBetweenComponents: CGFloat = 20
+	}
 
 	struct HobbyContent {
 		internal let title: String
@@ -32,12 +31,6 @@ class HobbyView: UIView {
 			self.link = "instagram.com/prokofev.k"
 		}
 	}
-
-//	private func setHooks() {
-//		self.subscribeView.onShare = { [weak self] in
-//			self?.onShareButton?()
-//		}
-//	}
 
 	private let photoView = UIImageView()
 	internal let instagramButton = UIButton()
@@ -79,7 +72,6 @@ class HobbyView: UIView {
 		self.instagramButton.setTitleColor(.black, for: .highlighted)
 		self.instagramButton.titleLabel?.adjustsFontSizeToFitWidth = true
 		self.instagramButton.layer.cornerRadius = 10
-		// self.instagramButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
 
 		self.titleLabel.textColor = .white
 
@@ -126,24 +118,21 @@ class HobbyView: UIView {
 		}
 
 		self.titleLabel.snp.makeConstraints { make in
-			make.left.right.equalToSuperview().inset(20)
+			make.left.right.equalToSuperview().inset(Metrics.spaceBetweenComponents)
 			make.top.equalTo(self.contentView.snp.top).offset(84)
 			make.height.equalTo(30)
 		}
 
 		self.instagramButton.snp.makeConstraints { make in
-			// make.left.right.equalTo(self.contentView).inset(67)
-			make.top.equalTo(self.titleLabel.snp.bottom).offset(20)
+			make.top.equalTo(self.titleLabel.snp.bottom).offset(Metrics.spaceBetweenComponents)
 			make.centerX.equalTo(self.contentView.snp.centerX)
 			make.width.equalTo(240)
 			make.height.equalTo(42)
 		}
 
 		self.descriptionLabel.snp.makeConstraints { make in
-			make.left.right.equalTo(self.contentView).inset(19)
-			make.top.equalTo(self.instagramButton.snp.bottom).offset(20)
-			// make.bottom.equalTo(self.contentView.snp.bottom).offset(-60)
-			// make.height.equalTo(100)
+			make.left.right.equalTo(self.contentView).inset(Metrics.spaceBetweenComponents)
+			make.top.equalTo(self.instagramButton.snp.bottom).offset(Metrics.spaceBetweenComponents)
 		}
 	}
 }
