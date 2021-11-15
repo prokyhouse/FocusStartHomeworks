@@ -13,6 +13,8 @@ final class SkillsView: UIView {
 
 	private enum Metrics {
 		static let spaceBetweenComponents: CGFloat = 9
+		static let bottomSafeArea: CGFloat = -40
+		static let viewHeight: CGFloat = 960
 	}
 
 	private let contentView = UIView()
@@ -116,10 +118,10 @@ final class SkillsView: UIView {
 		self.contentView.snp.makeConstraints { (make) in
 			make.top.equalTo(self.scrollView)
 			make.left.right.equalTo(self.scrollView)
-			make.bottom.equalTo(self.scrollView).offset(-40)
+			make.bottom.equalTo(self.scrollView).offset(Metrics.bottomSafeArea)
 
 			make.width.equalTo(self.scrollView)
-			make.height.equalTo(960)
+			make.height.equalTo(Metrics.viewHeight)
 		}
 
 		self.androidSkill.snp.makeConstraints { make in

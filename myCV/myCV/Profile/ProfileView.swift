@@ -16,6 +16,9 @@ final class ProfileView: UIView {
 		static let avatarPadding: CGFloat = 13
 		static let cardTextLeftPadding: CGFloat = 75
 		static let cardTextRightPadding: CGFloat = -30
+		static let bottomSafeArea: CGFloat = -40
+		static let viewHeight: CGFloat = 360
+		static let profileCardHeight = 71
 	}
 
 	struct ProfileContent {
@@ -140,10 +143,12 @@ final class ProfileView: UIView {
 			contentView.leftAnchor.constraint(equalTo: self.scrollView.leftAnchor),
 			contentView.rightAnchor.constraint(equalTo: self.scrollView.rightAnchor),
 			contentView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
-			contentView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor, constant: -40),
+			contentView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor,
+												constant: Metrics.bottomSafeArea),
 			contentView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
 			contentView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor),
-			contentView.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor, constant: 360)
+			contentView.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor,
+												constant: Metrics.viewHeight)
 		]
 
 		NSLayoutConstraint.activate(contentViewConstraints)
@@ -153,7 +158,7 @@ final class ProfileView: UIView {
 			profileCardView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: Metrics.spaceBetweenComponents),
 			profileCardView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -Metrics.spaceBetweenComponents),
 			profileCardView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: Metrics.spaceBetweenComponents),
-			profileCardView.heightAnchor.constraint(equalToConstant: 71)
+			profileCardView.heightAnchor.constraint(equalToConstant: Metrics.profileCardHeight)
 		]
 
 		NSLayoutConstraint.activate(profileCardViewConstraints)

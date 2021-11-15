@@ -13,6 +13,11 @@ final class HobbyView: UIView {
 
 	private enum Metrics {
 		static let spaceBetweenComponents: CGFloat = 20
+		static let viewHeight: CGFloat = 960
+		static let instButtonHeight: CGFloat = 42
+		static let instButtonWidth: CGFloat = 240
+		static let titleLabelHeight: CGFloat = 30
+		static let maxPhotoHeight: CGFloat = 650
 	}
 
 	struct HobbyContent {
@@ -108,7 +113,7 @@ final class HobbyView: UIView {
 			make.centerX.equalTo(self.snp.centerX)
 			make.left.right.top.equalToSuperview()
 			make.bottom.equalToSuperview().offset(-260)
-			make.height.lessThanOrEqualTo(650)
+			make.height.lessThanOrEqualTo(Metrics.maxPhotoHeight)
 		}
 
 		self.contentView.snp.makeConstraints { make in
@@ -120,14 +125,14 @@ final class HobbyView: UIView {
 		self.titleLabel.snp.makeConstraints { make in
 			make.left.right.equalToSuperview().inset(Metrics.spaceBetweenComponents)
 			make.top.equalTo(self.contentView.snp.top).offset(84)
-			make.height.equalTo(30)
+			make.height.equalTo(Metrics.titleLabelHeight)
 		}
 
 		self.instagramButton.snp.makeConstraints { make in
 			make.top.equalTo(self.titleLabel.snp.bottom).offset(Metrics.spaceBetweenComponents)
 			make.centerX.equalTo(self.contentView.snp.centerX)
-			make.width.equalTo(240)
-			make.height.equalTo(42)
+			make.width.equalTo(Metrics.instButtonWidth)
+			make.height.equalTo(Metrics.instButtonHeight)
 		}
 
 		self.descriptionLabel.snp.makeConstraints { make in
