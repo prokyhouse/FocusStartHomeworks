@@ -10,6 +10,14 @@ import UIKit
 
 class ProfileView: UIView {
 
+	private enum Metrics {
+		static let spaceBetweenComponents: CGFloat = 9
+		static let avatarSize: CGFloat = 45
+		static let avatarPadding: CGFloat = 13
+		static let cardTextLeftPadding: CGFloat = 75
+		static let cardTextRightPadding: CGFloat = -30
+	}
+
 	struct ProfileContent {
 		internal let name: String
 		internal let bio: String
@@ -142,10 +150,9 @@ class ProfileView: UIView {
 
 		profileCardView.translatesAutoresizingMaskIntoConstraints = false
 		let profileCardViewConstraints = [
-			profileCardView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 9),
-			profileCardView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -9),
-			profileCardView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 9),
-			//profileCardView.widthAnchor.constraint(equalToConstant: 355),
+			profileCardView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: Metrics.spaceBetweenComponents),
+			profileCardView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -Metrics.spaceBetweenComponents),
+			profileCardView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: Metrics.spaceBetweenComponents),
 			profileCardView.heightAnchor.constraint(equalToConstant: 71)
 		]
 
@@ -155,7 +162,7 @@ class ProfileView: UIView {
 		let mainBlockConstraints = [
 			mainBlock.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
 			mainBlock.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
-			mainBlock.topAnchor.constraint(equalTo: self.profileCardView.bottomAnchor, constant: 9),
+			mainBlock.topAnchor.constraint(equalTo: self.profileCardView.bottomAnchor, constant: Metrics.spaceBetweenComponents),
 			mainBlock.bottomAnchor.constraint(equalTo: self.interestsBlock.topAnchor),
 		]
 
@@ -165,7 +172,7 @@ class ProfileView: UIView {
 		let interestsBlockConstraints = [
 			interestsBlock.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
 			interestsBlock.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
-			interestsBlock.topAnchor.constraint(equalTo: self.mainBlock.bottomAnchor, constant: 9),
+			interestsBlock.topAnchor.constraint(equalTo: self.mainBlock.bottomAnchor, constant: Metrics.spaceBetweenComponents),
 		]
 
 		NSLayoutConstraint.activate(interestsBlockConstraints)
@@ -174,38 +181,47 @@ class ProfileView: UIView {
 		let skillsBlockConstraints = [
 			skillsBlock.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
 			skillsBlock.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
-			skillsBlock.topAnchor.constraint(equalTo: self.interestsBlock.bottomAnchor, constant: 9),
+			skillsBlock.topAnchor.constraint(equalTo: self.interestsBlock.bottomAnchor,
+											 constant: Metrics.spaceBetweenComponents),
 		]
 
 		NSLayoutConstraint.activate(skillsBlockConstraints)
 
 		nameLabel.translatesAutoresizingMaskIntoConstraints = false
 		let nameLabelConstraints = [
-			nameLabel.leftAnchor.constraint(equalTo: self.profileCardView.leftAnchor, constant: 75),
-			nameLabel.rightAnchor.constraint(equalTo: self.profileCardView.rightAnchor, constant: -30),
-			nameLabel.topAnchor.constraint(equalTo: self.profileCardView.topAnchor, constant: 18),
-			nameLabel.bottomAnchor.constraint(equalTo: self.profileCardView.bottomAnchor, constant: -31),
+			nameLabel.leftAnchor.constraint(equalTo: self.profileCardView.leftAnchor,
+											constant: Metrics.cardTextLeftPadding),
+			nameLabel.rightAnchor.constraint(equalTo: self.profileCardView.rightAnchor,
+											 constant: Metrics.cardTextRightPadding),
+			nameLabel.topAnchor.constraint(equalTo: self.profileCardView.topAnchor,
+										   constant: 18),
+			nameLabel.bottomAnchor.constraint(equalTo: self.profileCardView.bottomAnchor,
+											  constant: -31),
 		]
 
 		NSLayoutConstraint.activate(nameLabelConstraints)
 
 		bioLabel.translatesAutoresizingMaskIntoConstraints = false
 		let bioLabelConstraints = [
-			bioLabel.leftAnchor.constraint(equalTo: self.profileCardView.leftAnchor, constant: 75),
-			bioLabel.rightAnchor.constraint(equalTo: self.profileCardView.rightAnchor, constant: -30),
-			bioLabel.topAnchor.constraint(equalTo: self.profileCardView.topAnchor, constant: 40),
-			bioLabel.bottomAnchor.constraint(equalTo: self.profileCardView.bottomAnchor, constant: -15),
+			bioLabel.leftAnchor.constraint(equalTo: self.profileCardView.leftAnchor,
+										   constant: Metrics.cardTextLeftPadding),
+			bioLabel.rightAnchor.constraint(equalTo: self.profileCardView.rightAnchor,
+											constant: Metrics.cardTextRightPadding),
+			bioLabel.topAnchor.constraint(equalTo: self.profileCardView.topAnchor,
+										  constant: 40),
+			bioLabel.bottomAnchor.constraint(equalTo: self.profileCardView.bottomAnchor,
+											 constant: -15),
 		]
 
 		NSLayoutConstraint.activate(bioLabelConstraints)
 
 		avatar.translatesAutoresizingMaskIntoConstraints = false
 		let avatarConstraints = [
-			avatar.leftAnchor.constraint(equalTo: self.profileCardView.leftAnchor, constant: 19),
-			avatar.topAnchor.constraint(equalTo: self.profileCardView.topAnchor, constant: 13),
-			avatar.bottomAnchor.constraint(equalTo: self.profileCardView.bottomAnchor, constant: -13),
-			avatar.widthAnchor.constraint(equalToConstant: 45),
-			avatar.heightAnchor.constraint(equalToConstant: 45)
+			avatar.leftAnchor.constraint(equalTo: self.profileCardView.leftAnchor, constant: Metrics.avatarPadding),
+			avatar.topAnchor.constraint(equalTo: self.profileCardView.topAnchor, constant: Metrics.avatarPadding),
+			avatar.bottomAnchor.constraint(equalTo: self.profileCardView.bottomAnchor, constant: -Metrics.avatarPadding),
+			avatar.widthAnchor.constraint(equalToConstant: Metrics.avatarSize),
+			avatar.heightAnchor.constraint(equalToConstant: Metrics.avatarSize)
 		]
 
 		NSLayoutConstraint.activate(avatarConstraints)
