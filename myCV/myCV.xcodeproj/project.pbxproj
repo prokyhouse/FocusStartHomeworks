@@ -22,8 +22,6 @@
 		F074FE90273D838B0080FC38 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074FE8F273D838B0080FC38 /* ProfileView.swift */; };
 		F074FE92273D88C40080FC38 /* InformationBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074FE91273D88C40080FC38 /* InformationBlock.swift */; };
 		F074FE94273E5A6D0080FC38 /* SkillsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074FE93273E5A6D0080FC38 /* SkillsView.swift */; };
-		F074FE9A273E5B8E0080FC38 /* StackViewSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074FE99273E5B8E0080FC38 /* StackViewSetup.swift */; };
-		F074FE9C273E5BF10080FC38 /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074FE9B273E5BF10080FC38 /* LabelExtension.swift */; };
 		F074FE9E273E5F9A0080FC38 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074FE9D273E5F9A0080FC38 /* SkillView.swift */; };
 		F074FEA0273E5FA70080FC38 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074FE9F273E5FA70080FC38 /* Skill.swift */; };
 		F074FEA2273FB3C00080FC38 /* ColorGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074FEA1273FB3C00080FC38 /* ColorGradient.swift */; };
@@ -48,8 +46,6 @@
 		F074FE8F273D838B0080FC38 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F074FE91273D88C40080FC38 /* InformationBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationBlock.swift; sourceTree = "<group>"; };
 		F074FE93273E5A6D0080FC38 /* SkillsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsView.swift; sourceTree = "<group>"; };
-		F074FE99273E5B8E0080FC38 /* StackViewSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewSetup.swift; sourceTree = "<group>"; };
-		F074FE9B273E5BF10080FC38 /* LabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
 		F074FE9D273E5F9A0080FC38 /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
 		F074FE9F273E5FA70080FC38 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		F074FEA1273FB3C00080FC38 /* ColorGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGradient.swift; sourceTree = "<group>"; };
@@ -108,8 +104,6 @@
 				F035A122273BE5F3007E443C /* FontFormatter.swift */,
 				F035A11B273BA8AB007E443C /* UIView+Xib.swift */,
 				F074FE8D273D7D7B0080FC38 /* UIView+Gradient.swift */,
-				F074FE99273E5B8E0080FC38 /* StackViewSetup.swift */,
-				F074FE9B273E5BF10080FC38 /* LabelExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -231,8 +225,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F035A123273BE5F3007E443C /* FontFormatter.swift in Sources */,
-				F074FE9A273E5B8E0080FC38 /* StackViewSetup.swift in Sources */,
-				F074FE9C273E5BF10080FC38 /* LabelExtension.swift in Sources */,
 				F035A102273B91DD007E443C /* AppDelegate.swift in Sources */,
 				F074FEA0273E5FA70080FC38 /* Skill.swift in Sources */,
 				F074FE9E273E5F9A0080FC38 /* SkillView.swift in Sources */,
