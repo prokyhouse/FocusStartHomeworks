@@ -9,16 +9,16 @@ import Foundation
 import SnapKit
 import UIKit
 
-class SkillView: UIView {
+final class SkillView: UIView {
 
 	struct SkillContent {
-		internal let logo: UIImage?
-		internal let title: String
-		internal let description: String
-		internal let since: String
-		internal let gradients: ColorGradient
+		 let logo: UIImage?
+		 let title: String
+		 let description: String
+		 let since: String
+		 let gradients: ColorGradient
 
-		internal init(skillModel: Skill) {
+		 init(skillModel: Skill) {
 			self.logo = skillModel.logo
 			self.title = skillModel.title
 			self.description = skillModel.description
@@ -27,11 +27,11 @@ class SkillView: UIView {
 
 		}
 	}
-	internal let logoImage = UIImageView()
-	internal let titleLabel = UILabel()
-	internal let descriptionLabel = UILabel()
-	internal let sinceLabel = UILabel()
-	internal var gradient = ColorGradient(colorTop: .systemRed, colorBottom: .systemIndigo)
+	 let logoImage = UIImageView()
+	 let titleLabel = UILabel()
+	 let descriptionLabel = UILabel()
+	 let sinceLabel = UILabel()
+	 var gradient = ColorGradient(colorTop: .systemRed, colorBottom: .systemIndigo)
 
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -73,7 +73,7 @@ class SkillView: UIView {
 		self.logoImage.tintColor = .white
 			}
 
-	internal func setContent(model: SkillContent) {
+	 func setContent(model: SkillContent) {
 		self.logoImage.image = model.logo
 		self.titleLabel.text = model.title
 		self.descriptionLabel.text = model.description

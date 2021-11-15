@@ -12,8 +12,9 @@ protocol IHobbyViewController {
 	func presentShareSheet(url: String)
 }
 
-class HobbyViewController: UIViewController, IHobbyViewController {
-	private var hobbyView: HobbyView = HobbyView()
+final class HobbyViewController: UIViewController, IHobbyViewController {
+	private let hobbyView = HobbyView()
+	private let instagramLink = "https://instagram.com/prokofyev.k"
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -25,10 +26,10 @@ class HobbyViewController: UIViewController, IHobbyViewController {
 	}
 
 	@IBAction func shareInstagram(_ sender: Any) {
-		self.presentShareSheet(url: "https://instagram.com/prokofyev.k")
+		self.presentShareSheet(url: instagramLink)
 	}
 
-	internal func presentShareSheet(url: String) {
+	 func presentShareSheet(url: String) {
 		guard let url = URL(string: url) else {
 			return
 		}

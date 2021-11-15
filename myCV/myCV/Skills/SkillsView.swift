@@ -9,7 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-class SkillsView: UIView {
+final class SkillsView: UIView {
 
 	private enum Metrics {
 		static let spaceBetweenComponents: CGFloat = 9

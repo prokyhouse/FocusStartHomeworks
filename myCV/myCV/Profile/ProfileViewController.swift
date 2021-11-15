@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-class ProfileViewController: UIViewController {
-	private var profileView: ProfileView = ProfileView()
+final class ProfileViewController: UIViewController {
+	private let profileView = ProfileView()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

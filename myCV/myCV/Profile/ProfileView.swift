@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ProfileView: UIView {
+final class ProfileView: UIView {
 
 	private enum Metrics {
 		static let spaceBetweenComponents: CGFloat = 9
@@ -19,16 +19,16 @@ class ProfileView: UIView {
 	}
 
 	struct ProfileContent {
-		internal let name: String
-		internal let bio: String
-		internal let interestsTitle: String
-		internal let interests: String
-		internal let mainInfoTitle: String
-		internal let mainInfo: String
-		internal let skillsTitle: String
-		internal let skills: String
+		 let name: String
+		 let bio: String
+		 let interestsTitle: String
+		 let interests: String
+		 let mainInfoTitle: String
+		 let mainInfo: String
+		 let skillsTitle: String
+		 let skills: String
 
-		internal init() {
+		 init() {
 			self.name = "Кирилл Прокофьев"
 			self.bio = "21 год, г. Новосибирск"
 			self.interestsTitle = "Интересы"
@@ -80,7 +80,7 @@ class ProfileView: UIView {
 		self.setConstraints()
 	}
 
-	internal func setContent(model: ProfileContent) {
+	 func setContent(model: ProfileContent) {
 		self.nameLabel.text = model.name
 		self.bioLabel.text = model.bio
 		self.mainBlock.setContent(model: DescriptionView.DescriptionContent(model: InformationBlock(title: model.mainInfoTitle,

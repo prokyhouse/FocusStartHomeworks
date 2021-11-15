@@ -9,19 +9,19 @@ import Foundation
 import UIKit
 import SnapKit
 
-class HobbyView: UIView {
+final class HobbyView: UIView {
 
 	private enum Metrics {
 		static let spaceBetweenComponents: CGFloat = 20
 	}
 
 	struct HobbyContent {
-		internal let title: String
-		internal let description: String
-		internal let photoName: String
-		internal let link: String
+		 let title: String
+		 let description: String
+		 let photoName: String
+		 let link: String
 
-		internal init() {
+		 init() {
 			self.title = "Моё хобби".uppercased()
 			self.description = """
 Помимо IT, я профессионально занимаюсь фотографией с 2017 года.
@@ -33,7 +33,7 @@ class HobbyView: UIView {
 	}
 
 	private let photoView = UIImageView()
-	internal let instagramButton = UIButton()
+	 let instagramButton = UIButton()
 	private let titleLabel = UILabel()
 	private let descriptionLabel = UILabel()
 	private let contentView = UIView()
@@ -88,7 +88,7 @@ class HobbyView: UIView {
 		self.descriptionLabel.adjustsFontSizeToFitWidth = true
 	}
 
-	internal func setContent(model: HobbyContent) {
+	 func setContent(model: HobbyContent) {
 		self.photoView.image = UIImage(named: model.photoName)
 		self.titleLabel.text = model.title
 		self.descriptionLabel.text = model.description

@@ -27,6 +27,7 @@
 		F074FEA2273FB3C00080FC38 /* ColorGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074FEA1273FB3C00080FC38 /* ColorGradient.swift */; };
 		F074FEA4273FC8850080FC38 /* HobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074FEA3273FC8850080FC38 /* HobbyView.swift */; };
 		F074FEA7273FC8A60080FC38 /* HobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074FEA6273FC8A60080FC38 /* HobbyViewController.swift */; };
+		F0FB93552742AA360098A7CC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FB93542742AA360098A7CC /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		F074FEA1273FB3C00080FC38 /* ColorGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGradient.swift; sourceTree = "<group>"; };
 		F074FEA3273FC8850080FC38 /* HobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyView.swift; sourceTree = "<group>"; };
 		F074FEA6273FC8A60080FC38 /* HobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyViewController.swift; sourceTree = "<group>"; };
+		F0FB93542742AA360098A7CC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				F035A101273B91DD007E443C /* AppDelegate.swift */,
 				F035A103273B91DD007E443C /* SceneDelegate.swift */,
+				F0FB93542742AA360098A7CC /* TabBarController.swift */,
 				F035A128273C4761007E443C /* LaunchScreen */,
 				F035A125273C46D8007E443C /* Profile */,
 				F035A126273C472B007E443C /* Skills */,
@@ -227,6 +230,7 @@
 				F035A123273BE5F3007E443C /* FontFormatter.swift in Sources */,
 				F035A102273B91DD007E443C /* AppDelegate.swift in Sources */,
 				F074FEA0273E5FA70080FC38 /* Skill.swift in Sources */,
+				F0FB93552742AA360098A7CC /* TabBarController.swift in Sources */,
 				F074FE9E273E5F9A0080FC38 /* SkillView.swift in Sources */,
 				F074FE94273E5A6D0080FC38 /* SkillsView.swift in Sources */,
 				F074FEA7273FC8A60080FC38 /* HobbyViewController.swift in Sources */,

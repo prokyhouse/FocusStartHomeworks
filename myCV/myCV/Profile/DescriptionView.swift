@@ -8,17 +8,17 @@
 import Foundation
 import UIKit
 
-class DescriptionView: UIView {
+final class DescriptionView: UIView {
 
 	private enum Metrics {
 		static let separatorPadding: CGFloat = 9
 	}
 
 	struct DescriptionContent {
-		internal let title: String
-		internal let description: String
+		 let title: String
+		 let description: String
 
-		internal init(model: InformationBlock) {
+		 init(model: InformationBlock) {
 			self.title = model.title
 			self.description = model.description
 		}
@@ -59,7 +59,7 @@ class DescriptionView: UIView {
 		self.addSubview(self.separator)
 	}
 
-	internal func setContent(model: DescriptionContent) {
+	 func setContent(model: DescriptionContent) {
 		self.descriptionTitle.text = model.title
 		self.descriptionLabel.text = model.description
 	}

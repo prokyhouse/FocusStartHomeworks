@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-class SkillsViewController: UIViewController {
-	private var skillsView: SkillsView = SkillsView()
+final class SkillsViewController: UIViewController {
+	private let skillsView = SkillsView()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
