@@ -10,6 +10,11 @@ import SnapKit
 import UIKit
 
 class SkillsView: UIView {
+
+	private enum Metrics {
+		static let spaceBetweenComponents: CGFloat = 9
+	}
+
 	private let contentView = UIView()
 	private let scrollView = UIScrollView()
 	private let androidSkill = SkillView()
@@ -118,23 +123,23 @@ class SkillsView: UIView {
 		}
 
 		self.androidSkill.snp.makeConstraints { make in
-			make.left.right.equalTo(self.contentView).inset(9)
-			make.top.equalTo(self.contentView).offset(9)
+			make.left.right.equalTo(self.contentView).inset(Metrics.spaceBetweenComponents)
+			make.top.equalTo(self.contentView).offset(Metrics.spaceBetweenComponents)
 		}
 
 		self.vrSkill.snp.makeConstraints { make in
-			make.left.right.equalTo(self.contentView).inset(9)
-			make.top.equalTo(self.androidSkill.snp.bottom).offset(9)
+			make.left.right.equalTo(self.contentView).inset(Metrics.spaceBetweenComponents)
+			make.top.equalTo(self.androidSkill.snp.bottom).offset(Metrics.spaceBetweenComponents)
 		}
 
 		self.iosSkill.snp.makeConstraints { make in
-			make.left.right.equalTo(self.contentView).inset(9)
-			make.top.equalTo(self.vrSkill.snp.bottom).offset(9)
+			make.left.right.equalTo(self.contentView).inset(Metrics.spaceBetweenComponents)
+			make.top.equalTo(self.vrSkill.snp.bottom).offset(Metrics.spaceBetweenComponents)
 		}
 
 		self.otherSkills.snp.makeConstraints { make in
-			make.left.right.equalTo(self.contentView).inset(9)
-			make.top.equalTo(self.iosSkill.snp.bottom).offset(9)
+			make.left.right.equalTo(self.contentView).inset(Metrics.spaceBetweenComponents)
+			make.top.equalTo(self.iosSkill.snp.bottom).offset(Metrics.spaceBetweenComponents)
 		}
 	}
 }
