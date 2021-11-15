@@ -10,6 +10,10 @@ import UIKit
 
 class DescriptionView: UIView {
 
+	private enum Metrics {
+		static let separatorPadding: CGFloat = 9
+	}
+
 	struct DescriptionContent {
 		internal let title: String
 		internal let description: String
@@ -125,14 +129,17 @@ class DescriptionView: UIView {
 		let separatorConstraints = [
 			separator.heightAnchor.constraint(equalToConstant: 1),
 			separator.topAnchor.constraint(equalTo: self.bottomAnchor),
-			separator.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -9),
-			separator.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 9)
+			separator.rightAnchor.constraint(equalTo: self.rightAnchor,
+											 constant: -Metrics.separatorPadding),
+			separator.leftAnchor.constraint(equalTo: self.leftAnchor,
+											constant: Metrics.separatorPadding)
 		]
 
 		NSLayoutConstraint.activate(separatorConstraints)
 
 		let descriptionViewConstraints = [
-			self.bottomAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 16),
+			self.bottomAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor,
+										 constant: 16),
 		]
 
 		NSLayoutConstraint.activate(descriptionViewConstraints)
