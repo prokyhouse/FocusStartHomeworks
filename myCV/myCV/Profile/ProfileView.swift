@@ -18,7 +18,7 @@ final class ProfileView: UIView {
 		static let cardTextRightPadding: CGFloat = -30
 		static let bottomSafeArea: CGFloat = -40
 		static let viewHeight: CGFloat = 360
-		static let profileCardHeight = 71
+		static let profileCardHeight: CGFloat = 71
 	}
 
 	struct ProfileContent {

@@ -34,14 +34,9 @@ extension UIView {
 	}
 
 	func removeSublayer(_ view: UIView, layerIndex index: Int) {
-		guard let sublayers = view.layer.sublayers else {
-			print("The view does not have any sublayers.")
-			return
-		}
+		guard let sublayers = view.layer.sublayers else { return }
 		if sublayers.count > index {
-			view.layer.sublayers!.remove(at: index)
-		} else {
-			print("There are not enough sublayers to remove that index.")
+				view.layer.sublayers?.remove(at: index)
 		}
 	}
 }
