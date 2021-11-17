@@ -17,7 +17,7 @@ class TabBarController: UITabBarController {
 
 	func set() {
 		let viewControllers: [UIViewController]
-		let filmsListVC = FilmsListViewController()
+		let filmsListVC = MovieListViewController()
 		let filmsListNavVC = UINavigationController(rootViewController: filmsListVC)
 
 		filmsListVC.tabBarItem = self.createFilmsListTab()

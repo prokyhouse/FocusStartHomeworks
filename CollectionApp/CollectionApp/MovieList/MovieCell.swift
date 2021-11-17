@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-final class FilmCell: UICollectionViewCell {
+final class MovieCell: UICollectionViewCell {
 	static let identifier = "FilmCell"
 
 	private let imageView = UIImageView()
