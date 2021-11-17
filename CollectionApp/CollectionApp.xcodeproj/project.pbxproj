@@ -22,6 +22,7 @@
 		F027447C2744F8BB008B6408 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027447B2744F8BB008B6408 /* DetailViewController.swift */; };
 		F027447E2744FDF5008B6408 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027447D2744FDF5008B6408 /* DetailView.swift */; };
 		F027448027450C04008B6408 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027447F27450C03008B6408 /* UIView+Gradient.swift */; };
+		F027448227451A7E008B6408 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027448127451A7E008B6408 /* OverviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		F027447B2744F8BB008B6408 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F027447D2744FDF5008B6408 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		F027447F27450C03008B6408 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
+		F027448127451A7E008B6408 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				F027447B2744F8BB008B6408 /* DetailViewController.swift */,
 				F027447D2744FDF5008B6408 /* DetailView.swift */,
 				F027447F27450C03008B6408 /* UIView+Gradient.swift */,
+				F027448127451A7E008B6408 /* OverviewViewController.swift */,
 			);
 			path = CollectionApp;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				F00097E027441DA900AD9BC7 /* TabBarController.swift in Sources */,
 				F027447E2744FDF5008B6408 /* DetailView.swift in Sources */,
 				F00097E42744235600AD9BC7 /* FlowLayout.swift in Sources */,
+				F027448227451A7E008B6408 /* OverviewViewController.swift in Sources */,
 				F00097F02744320900AD9BC7 /* UIView+Layout.swift in Sources */,
 				F027447C2744F8BB008B6408 /* DetailViewController.swift in Sources */,
 				F00097D32744119C00AD9BC7 /* CollectionApp.xcdatamodeld in Sources */,

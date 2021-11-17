@@ -20,11 +20,20 @@ final class DetailViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.title = movie.title
+		self.detailView.moreButton.addTarget(self, action: #selector(openOverview), for: .touchUpInside)
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.tabBarController?.tabBar.isHidden = true
+	}
+
+	@IBAction func openOverview(_ sender: Any) {
+		let overviewVC = OverviewViewController()
+		overviewVC.modalPresentationStyle = .pageSheet
+		overviewVC.modalTransitionStyle = .coverVertical
+		overviewVC.movie = movie
+		present(overviewVC, animated: true)
 	}
 
 	private func configure() {

@@ -20,6 +20,7 @@ final class DetailView: UIView {
 	private let posterView = UIImageView()
 	private let titleLabel = UILabel()
 	private let descriptionLabel = UILabel()
+	internal let moreButton = UIButton()
 	private let contentView = UIView()
 
 	public override init(frame: CGRect) {
@@ -35,13 +36,11 @@ final class DetailView: UIView {
 
 	private func configure() {
 		self.setConfig()
-		//self.setContent(model: DetailContent.init())
 		self.addSubviews()
 		self.setConstraints()
 	}
 
 	private func setConfig() {
-		
 
 		self.contentView.backgroundColor = .black
 		self.contentView.layer.cornerRadius = 12
@@ -53,13 +52,16 @@ final class DetailView: UIView {
 		self.posterView.contentMode = .scaleAspectFill
 
 		self.titleLabel.textAlignment = .center
-		self.descriptionLabel.numberOfLines = 10
+		self.descriptionLabel.numberOfLines = 4
 		self.titleLabel.font = UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.bold)
 
 
 		self.descriptionLabel.textColor = .white
-		self.descriptionLabel.numberOfLines = 8
 
+		self.moreButton.setTitle("полное описание", for: .normal)
+		self.moreButton.setTitleColor(UIColor(named: "AccentColor"), for: .normal)
+		self.moreButton.setTitleColor(.white, for: .highlighted)
+		self.moreButton.titleLabel?.adjustsFontSizeToFitWidth = true
 	}
 
 	func setContent(model: Movie) {
@@ -73,6 +75,7 @@ final class DetailView: UIView {
 		self.addSubview(self.posterView)
 		self.addSubview(self.contentView)
 		self.contentView.addSubview(self.descriptionLabel)
+		self.contentView.addSubview(self.moreButton)
 	}
 
 	private func setConstraints() {
@@ -83,10 +86,17 @@ final class DetailView: UIView {
 		self.contentView.snp.makeConstraints { make in
 			make.centerY.centerX.equalToSuperview()
 			make.right.left.equalToSuperview().inset(30)
+			make.bottom.equalTo(self.moreButton).offset(9)
 		}
 
 		self.descriptionLabel.snp.makeConstraints { make in
-			make.top.bottom.left.right.equalTo(self.contentView).inset(9)
+			make.top.left.right.equalTo(self.contentView).inset(9)
+		}
+
+		self.moreButton.snp.makeConstraints { make in
+			make.centerX.equalTo(self.contentView)
+			make.top.equalTo(self.descriptionLabel.snp.bottom).offset(9)
+			make.height.equalTo(18)
 		}
 	}
 }
