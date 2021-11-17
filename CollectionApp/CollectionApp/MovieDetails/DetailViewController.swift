@@ -11,7 +11,7 @@ import UIKit
 final class DetailViewController: UIViewController {
 	var movie: Movie = Movie(title: "smth", overview: "text", genres: ["no genre"])
 	private let detailView = DetailView()
-	
+
 	override func loadView() {
 		detailView.setContent(model: movie)
 		self.view = self.detailView

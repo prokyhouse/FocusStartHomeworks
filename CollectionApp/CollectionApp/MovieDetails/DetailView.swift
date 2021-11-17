@@ -16,7 +16,6 @@ final class DetailView: UIView {
 	private enum Metrics {
 	}
 
-
 	private let posterView = UIImageView()
 	private let titleLabel = UILabel()
 	private let descriptionLabel = UILabel()
@@ -31,8 +30,6 @@ final class DetailView: UIView {
 	public required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-
-	
 
 	private func configure() {
 		self.setConfig()
@@ -54,7 +51,6 @@ final class DetailView: UIView {
 		self.titleLabel.textAlignment = .center
 		self.descriptionLabel.numberOfLines = 4
 		self.titleLabel.font = UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.bold)
-
 
 		self.descriptionLabel.textColor = .white
 
@@ -114,4 +110,3 @@ extension UIImage {
 		return UIImage(cgImage: cgImage2)
 	}
 }
-

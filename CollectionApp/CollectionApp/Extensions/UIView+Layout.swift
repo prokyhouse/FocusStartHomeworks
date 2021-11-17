@@ -8,24 +8,20 @@
 import Foundation
 import UIKit
 
-public struct Edge
-{
-	public enum YPosition
-	{
+public struct Edge {
+	public enum YPosition {
 		case top
 		case bottom
 		case center
 	}
 
-	public enum XPosition
-	{
+	public enum XPosition {
 		case left
 		case right
 		case center
 	}
 
-	public enum Position
-	{
+	public enum Position {
 		case left
 		case right
 		case top
@@ -50,8 +46,7 @@ public struct Edge
 		}
 	}
 
-	public enum Relation
-	{
+	public enum Relation {
 		case equal
 		case greaterOrEqual
 		case lessOrEqual
@@ -165,8 +160,7 @@ public struct Edge
 		return [.top(edgeInsets.top), .left(edgeInsets.left), .bottom(edgeInsets.bottom), .right(edgeInsets.right)]
 	}
 }
-public extension UIView
-{
+public extension UIView {
 	func pinToSuperviewEdges(_ offset: CGFloat = 0) {
 		guard let superview = self.superview else {
 			fatalError("Superview cannot be nil")
@@ -184,7 +178,7 @@ public extension UIView
 			.top(edgeInsets.top),
 			.left(edgeInsets.left),
 			.right(edgeInsets.right),
-			.bottom(edgeInsets.bottom),
+			.bottom(edgeInsets.bottom)
 		], to: superview)
 	}
 
@@ -213,11 +207,11 @@ public extension UIView
 	}
 
 	func pin(edges: [Edge], to view: UIView) {
-		edges.forEach{ self.pin(view: self, to: view, edge: $0) }
+		edges.forEach { self.pin(view: self, to: view, edge: $0) }
 	}
 
 	func pin(edges: [Edge], to view: UILayoutGuide) {
-		edges.forEach{ self.pin(view: self, to: view, edge: $0) }
+		edges.forEach { self.pin(view: self, to: view, edge: $0) }
 	}
 
 	@discardableResult
@@ -272,8 +266,7 @@ public extension UIView
 	}
 }
 
-public extension UIView
-{
+public extension UIView {
 	@discardableResult
 	func setHeight(equalHeightTo view: UIView,
 				   relation: Edge.Relation = .equal,
@@ -373,12 +366,11 @@ public extension UIView
 	}
 }
 
-extension UIView
-{
+extension UIView {
 	func setSizeConstraints(size: CGSize) {
 		NSLayoutConstraint.activate([
 			self.widthAnchor.constraint(equalToConstant: size.width),
-			self.heightAnchor.constraint(equalToConstant: size.height),
+			self.heightAnchor.constraint(equalToConstant: size.height)
 		])
 	}
 

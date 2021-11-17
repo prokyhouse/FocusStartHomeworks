@@ -13,7 +13,6 @@ import SnapKit
 
 final class MovieListViewController: UIViewController {
 
-
 	private lazy var collectionView: UICollectionView = {
 		let flowLayout = FlowLayout()
 		let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -44,7 +43,6 @@ final class MovieListViewController: UIViewController {
 		self.tabBarController?.tabBar.isHidden = false
 	}
 }
-
 
 extension MovieListViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
