@@ -20,6 +20,8 @@
 		F02744772744C48E008B6408 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02744762744C48E008B6408 /* Movie.swift */; };
 		F027447A2744E701008B6408 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F02744792744E701008B6408 /* SnapKit */; };
 		F027447C2744F8BB008B6408 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027447B2744F8BB008B6408 /* DetailViewController.swift */; };
+		F027447E2744FDF5008B6408 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027447D2744FDF5008B6408 /* DetailView.swift */; };
+		F027448027450C04008B6408 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027447F27450C03008B6408 /* UIView+Gradient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		F00097EF2744320900AD9BC7 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		F02744762744C48E008B6408 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		F027447B2744F8BB008B6408 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F027447D2744FDF5008B6408 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		F027447F27450C03008B6408 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				F00097EF2744320900AD9BC7 /* UIView+Layout.swift */,
 				F02744762744C48E008B6408 /* Movie.swift */,
 				F027447B2744F8BB008B6408 /* DetailViewController.swift */,
+				F027447D2744FDF5008B6408 /* DetailView.swift */,
+				F027447F27450C03008B6408 /* UIView+Gradient.swift */,
 			);
 			path = CollectionApp;
 			sourceTree = "<group>";
@@ -168,10 +174,12 @@
 				F02744772744C48E008B6408 /* Movie.swift in Sources */,
 				F00097CB2744119C00AD9BC7 /* SceneDelegate.swift in Sources */,
 				F00097E027441DA900AD9BC7 /* TabBarController.swift in Sources */,
+				F027447E2744FDF5008B6408 /* DetailView.swift in Sources */,
 				F00097E42744235600AD9BC7 /* FlowLayout.swift in Sources */,
 				F00097F02744320900AD9BC7 /* UIView+Layout.swift in Sources */,
 				F027447C2744F8BB008B6408 /* DetailViewController.swift in Sources */,
 				F00097D32744119C00AD9BC7 /* CollectionApp.xcdatamodeld in Sources */,
+				F027448027450C04008B6408 /* UIView+Gradient.swift in Sources */,
 				F00097EE274430F700AD9BC7 /* FilmCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

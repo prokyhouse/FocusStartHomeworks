@@ -43,6 +43,7 @@ final class FilmsListViewController: UIViewController {
 extension FilmsListViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let detailVC = DetailViewController()
+		detailVC.movie = self.movies[indexPath.item]
 		self.navigationController?.pushViewController(detailVC, animated: true)
 	}
 
