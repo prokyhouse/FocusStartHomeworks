@@ -20,7 +20,11 @@ final class DetailViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.title = movie.title
-		//self.configure()
+	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.tabBarController?.tabBar.isHidden = true
 	}
 
 	private func configure() {

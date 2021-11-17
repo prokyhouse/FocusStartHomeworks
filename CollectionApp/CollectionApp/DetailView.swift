@@ -31,6 +31,8 @@ final class DetailView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 
+	
+
 	private func configure() {
 		self.setConfig()
 		//self.setContent(model: DetailContent.init())
@@ -39,6 +41,7 @@ final class DetailView: UIView {
 	}
 
 	private func setConfig() {
+		
 
 		self.contentView.backgroundColor = .black
 		self.contentView.layer.cornerRadius = 12

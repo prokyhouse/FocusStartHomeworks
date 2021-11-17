@@ -38,7 +38,13 @@ final class FilmsListViewController: UIViewController {
 		overrideUserInterfaceStyle = .dark
 		navigationController?.navigationBar.prefersLargeTitles = true
 	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.tabBarController?.tabBar.isHidden = false
+	}
 }
+
 
 extension FilmsListViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
