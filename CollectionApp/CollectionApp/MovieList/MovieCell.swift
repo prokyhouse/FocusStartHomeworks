@@ -53,13 +53,17 @@ final class MovieCell: UICollectionViewCell {
 	private func setConfig() {
 		self.imageView.contentMode = .scaleAspectFill
 		self.imageView.clipsToBounds = true
+
 		self.placeLabel.textColor = .lightGray
 		self.placeLabel.numberOfLines = 2
+
 		self.nameLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.semibold)
-		self.backgroundColor = .darkGray
 		self.nameLabel.textColor = .white
 
+		self.backgroundColor = .darkGray
+
 		self.imageView.layer.cornerRadius = 12
+		
 		self.layer.cornerRadius = 10
 	}
 

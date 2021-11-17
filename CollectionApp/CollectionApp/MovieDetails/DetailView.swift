@@ -43,15 +43,14 @@ final class DetailView: UIView {
 		self.contentView.layer.cornerRadius = 12
 
 		self.backgroundColor = .black
-
-		self.titleLabel.textColor = .white
-
+		
 		self.posterView.contentMode = .scaleAspectFill
 
+		self.titleLabel.textColor = .white
 		self.titleLabel.textAlignment = .center
-		self.descriptionLabel.numberOfLines = 4
 		self.titleLabel.font = UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.bold)
 
+		self.descriptionLabel.numberOfLines = 4
 		self.descriptionLabel.textColor = .white
 
 		self.moreButton.setTitle("полное описание", for: .normal)
