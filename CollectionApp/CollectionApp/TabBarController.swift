@@ -18,10 +18,11 @@ class TabBarController: UITabBarController {
 	func set() {
 		let viewControllers: [UIViewController]
 		let filmsListVC = FilmsListViewController()
+		let filmsListNavVC = UINavigationController(rootViewController: filmsListVC)
 
 		filmsListVC.tabBarItem = self.createFilmsListTab()
 
-		viewControllers = [filmsListVC]
+		viewControllers = [filmsListNavVC]
 		self.viewControllers = viewControllers
 	}
 

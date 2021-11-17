@@ -22,7 +22,7 @@ final class FlowLayout: UICollectionViewFlowLayout {
 		let maxNumColumns = Int(availableWidth / minColumnWidth)
 		let cellWidth = (availableWidth / CGFloat(maxNumColumns)).rounded(.down)
 
-		self.itemSize = CGSize(width: cellWidth, height: 70)
+		self.itemSize = CGSize(width: cellWidth, height: 90)
 
 		self.sectionInset = UIEdgeInsets(top: self.minimumInteritemSpacing * 2, left: self.minimumInteritemSpacing, bottom: 0, right: self.minimumInteritemSpacing)
 		self.sectionInsetReference = .fromSafeArea
