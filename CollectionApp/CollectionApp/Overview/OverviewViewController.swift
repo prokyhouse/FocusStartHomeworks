@@ -11,6 +11,10 @@ final class OverviewViewController: UIViewController {
 
 	var movie: Movie = Movie(title: "smth", overview: "text", genres: ["no genre"])
 
+	private enum Metrics {
+		static let spaceBetweenComponents: CGFloat = 9
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.configure()
@@ -36,7 +40,7 @@ final class OverviewViewController: UIViewController {
 		self.view.addSubview(label)
 
 		label.snp.makeConstraints { make in
-			make.left.right.equalToSuperview().inset(9)
+			make.left.right.equalToSuperview().inset(Metrics.spaceBetweenComponents)
 		}
 
 		closeButton.pin(edges: [.top(10), .left(10)], to: self.view)

@@ -10,6 +10,11 @@ import UIKit
 import SnapKit
 
 final class MovieCell: UICollectionViewCell {
+	
+	private enum Metrics {
+		static let spaceBetweenComponents: CGFloat = 9
+	}
+
 	static let identifier = "FilmCell"
 
 	private let imageView = UIImageView()
@@ -76,16 +81,16 @@ final class MovieCell: UICollectionViewCell {
 	private func setConstraints() {
 
 		self.imageView.snp.makeConstraints { make in
-			make.left.top.bottom.equalToSuperview().inset(9)
+			make.left.top.bottom.equalToSuperview().inset(Metrics.spaceBetweenComponents)
 			make.width.equalTo(95)
 		}
 		self.nameLabel.snp.makeConstraints { make in
-			make.top.right.equalToSuperview().inset(9)
-			make.left.equalTo(self.imageView.snp.right).offset(9)
+			make.top.right.equalToSuperview().inset(Metrics.spaceBetweenComponents)
+			make.left.equalTo(self.imageView.snp.right).offset(Metrics.spaceBetweenComponents)
 		}
 		self.placeLabel.snp.makeConstraints { make in
-			make.right.equalToSuperview().inset(9)
-			make.left.equalTo(self.imageView.snp.right).offset(9)
+			make.right.equalToSuperview().inset(Metrics.spaceBetweenComponents)
+			make.left.equalTo(self.imageView.snp.right).offset(Metrics.spaceBetweenComponents)
 			make.top.equalTo(self.nameLabel.snp.bottom).offset(3)
 		}
 	}

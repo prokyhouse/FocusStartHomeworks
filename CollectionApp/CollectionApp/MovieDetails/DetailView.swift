@@ -14,6 +14,9 @@ final class DetailView: UIView {
 	private var contentModel: Movie = Movie(title: "smth", overview: "overview", genres: ["genre"])
 
 	private enum Metrics {
+		static let spaceBetweenComponents: CGFloat = 9
+		static let blurRadius: CGFloat = 16
+		static let contentInset: CGFloat = 30
 	}
 
 	private let posterView = UIImageView()
@@ -61,7 +64,7 @@ final class DetailView: UIView {
 
 	func setContent(model: Movie) {
 		self.contentModel = model
-		self.posterView.image = UIImage(named: model.title)?.blurred(radius: 16.0)
+		self.posterView.image = UIImage(named: model.title)?.blurred(radius: Metrics.blurRadius)
 		self.titleLabel.text = model.title
 		self.descriptionLabel.text = model.overview
 	}
@@ -80,18 +83,18 @@ final class DetailView: UIView {
 
 		self.contentView.snp.makeConstraints { make in
 			make.centerY.centerX.equalToSuperview()
-			make.right.left.equalToSuperview().inset(30)
-			make.bottom.equalTo(self.moreButton).offset(9)
+			make.right.left.equalToSuperview().inset(Metrics.contentInset)
+			make.bottom.equalTo(self.moreButton).offset(Metrics.spaceBetweenComponents)
 		}
 
 		self.descriptionLabel.snp.makeConstraints { make in
-			make.top.left.right.equalTo(self.contentView).inset(9)
+			make.top.left.right.equalTo(self.contentView).inset(Metrics.spaceBetweenComponents)
 		}
 
 		self.moreButton.snp.makeConstraints { make in
 			make.centerX.equalTo(self.contentView)
-			make.top.equalTo(self.descriptionLabel.snp.bottom).offset(9)
-			make.height.equalTo(18)
+			make.top.equalTo(self.descriptionLabel.snp.bottom).offset(Metrics.spaceBetweenComponents)
+			make.height.equalTo(Metrics.spaceBetweenComponents).multipliedBy(2)
 		}
 	}
 }
