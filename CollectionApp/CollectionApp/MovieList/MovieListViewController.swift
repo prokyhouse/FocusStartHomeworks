@@ -35,7 +35,7 @@ final class MovieListViewController: UIViewController {
 		let title = "Фильмы"
 		self.title = title
 		overrideUserInterfaceStyle = .dark
-		navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "AccentCOlor") ?? .red]
+		navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "AccentColor") ?? .red]
 		navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 		navigationController?.navigationBar.prefersLargeTitles = true
 	}
