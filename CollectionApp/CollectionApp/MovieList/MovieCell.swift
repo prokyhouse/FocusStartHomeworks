@@ -19,7 +19,7 @@ final class MovieCell: UICollectionViewCell {
 
 	private let imageView = UIImageView()
 	private let nameLabel = UILabel()
-	private let placeLabel = UILabel()
+	private let overviewLabel = UILabel()
 
 	var movie: Movie? {
 		didSet {
@@ -27,7 +27,7 @@ final class MovieCell: UICollectionViewCell {
 			self.imageView.image = UIImage(named: movie.title)
 			self.imageView.clipsToBounds = true
 			self.nameLabel.text = movie.title
-			self.placeLabel.text = movie.overview
+			self.overviewLabel.text = movie.overview
 		}
 	}
 
@@ -59,8 +59,8 @@ final class MovieCell: UICollectionViewCell {
 		self.imageView.contentMode = .scaleAspectFill
 		self.imageView.clipsToBounds = true
 
-		self.placeLabel.textColor = .lightGray
-		self.placeLabel.numberOfLines = 2
+		self.overviewLabel.textColor = .lightGray
+		self.overviewLabel.numberOfLines = 2
 
 		self.nameLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.semibold)
 		self.nameLabel.textColor = .white
@@ -75,7 +75,7 @@ final class MovieCell: UICollectionViewCell {
 	private func addSubviews() {
 		self.addSubview(imageView)
 		self.addSubview(nameLabel)
-		self.addSubview(placeLabel)
+		self.addSubview(overviewLabel)
 	}
 
 	private func setConstraints() {
@@ -88,7 +88,7 @@ final class MovieCell: UICollectionViewCell {
 			make.top.right.equalToSuperview().inset(Metrics.spaceBetweenComponents)
 			make.left.equalTo(self.imageView.snp.right).offset(Metrics.spaceBetweenComponents)
 		}
-		self.placeLabel.snp.makeConstraints { make in
+		self.overviewLabel.snp.makeConstraints { make in
 			make.right.equalToSuperview().inset(Metrics.spaceBetweenComponents)
 			make.left.equalTo(self.imageView.snp.right).offset(Metrics.spaceBetweenComponents)
 			make.top.equalTo(self.nameLabel.snp.bottom).offset(3)

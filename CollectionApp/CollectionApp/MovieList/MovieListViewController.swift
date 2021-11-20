@@ -54,7 +54,7 @@ extension MovieListViewController: UICollectionViewDelegate {
 	}
 
 	func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-		indexPath.row == 0 ? false : true
+		return true
 	}
 }
 
