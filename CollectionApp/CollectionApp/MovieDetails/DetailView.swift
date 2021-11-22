@@ -17,6 +17,9 @@ final class DetailView: UIView {
 		static let spaceBetweenComponents: CGFloat = 9
 		static let blurRadius: CGFloat = 16
 		static let contentInset: CGFloat = 30
+		static let cornerRadius: CGFloat = 12
+		static let titleSize: CGFloat = 22
+		static let numberOfLines = 4
 	}
 
 	private let posterView = UIImageView()
@@ -43,7 +46,7 @@ final class DetailView: UIView {
 	private func setConfig() {
 
 		self.contentView.backgroundColor = .black
-		self.contentView.layer.cornerRadius = 12
+		self.contentView.layer.cornerRadius = Metrics.cornerRadius
 
 		self.backgroundColor = .black
 		
@@ -51,9 +54,9 @@ final class DetailView: UIView {
 
 		self.titleLabel.textColor = .white
 		self.titleLabel.textAlignment = .center
-		self.titleLabel.font = UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.bold)
+		self.titleLabel.font = UIFont.systemFont(ofSize: Metrics.titleSize, weight: UIFont.Weight.bold)
 
-		self.descriptionLabel.numberOfLines = 4
+		self.descriptionLabel.numberOfLines = Metrics.numberOfLines
 		self.descriptionLabel.textColor = .white
 
 		self.moreButton.setTitle("полное описание", for: .normal)
