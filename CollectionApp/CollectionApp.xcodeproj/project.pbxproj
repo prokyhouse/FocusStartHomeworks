@@ -22,6 +22,7 @@
 		F027447E2744FDF5008B6408 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027447D2744FDF5008B6408 /* DetailView.swift */; };
 		F027448027450C04008B6408 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027447F27450C03008B6408 /* UIView+Gradient.swift */; };
 		F027448227451A7E008B6408 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027448127451A7E008B6408 /* OverviewViewController.swift */; };
+		F0F52CC4274BEFF200731BF8 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F52CC3274BEFF100731BF8 /* UIView+Blur.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		F027447D2744FDF5008B6408 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		F027447F27450C03008B6408 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		F027448127451A7E008B6408 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
+		F0F52CC3274BEFF100731BF8 /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				F00097EF2744320900AD9BC7 /* UIView+Layout.swift */,
 				F027447F27450C03008B6408 /* UIView+Gradient.swift */,
+				F0F52CC3274BEFF100731BF8 /* UIView+Blur.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F00097C92744119C00AD9BC7 /* AppDelegate.swift in Sources */,
+				F0F52CC4274BEFF200731BF8 /* UIView+Blur.swift in Sources */,
 				F00097E227441E0100AD9BC7 /* MovieListViewController.swift in Sources */,
 				F02744772744C48E008B6408 /* Movie.swift in Sources */,
 				F00097CB2744119C00AD9BC7 /* SceneDelegate.swift in Sources */,
