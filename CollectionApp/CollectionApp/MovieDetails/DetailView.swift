@@ -68,6 +68,7 @@ final class DetailView: UIView {
 	func setContent(model: Movie) {
 		self.contentModel = model
 		self.posterView.image = UIImage(named: model.title)?.blurred(radius: Metrics.blurRadius)
+		self.posterView.clipsToBounds = true
 		self.titleLabel.text = model.title
 		self.descriptionLabel.text = model.overview
 	}
