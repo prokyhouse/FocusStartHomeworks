@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 struct Movie {
-	public let title: String
-	public let overview: String
-	public let genres: [String]?
+	let title: String
+	let overview: String
+	let genres: [String]?
 }
 
 extension Movie {
