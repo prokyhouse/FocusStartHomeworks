@@ -32,6 +32,13 @@ final class MovieModel
 		return title
 	}
 
+	func getOverview() -> String {
+		guard let overview = self.movie?.overview else {
+			return "No overview"
+		}
+		return overview
+	}
+
 	func setMovie(movie: Movie) {
 		self.movie = movie
 	}
