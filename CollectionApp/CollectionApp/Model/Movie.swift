@@ -14,6 +14,29 @@ struct Movie {
 	let genres: [String]?
 }
 
+final class MovieModel
+{
+	private var movie: Movie?
+
+	func getMovie() -> Movie {
+		guard let movie = self.movie else {
+			return Movie(title: "-", overview: "-", genres: ["-"])
+		}
+		return movie
+	}
+
+	func getTitle() -> String {
+		guard let title = self.movie?.title else {
+			return "No title"
+		}
+		return title
+	}
+
+	func setMovie(movie: Movie) {
+		self.movie = movie
+	}
+}
+
 extension Movie {
 	static var sampleData: [Self] {
 		let firstMovie = Movie(title: "Космический джем: Новое поколение", overview: "Чтобы спасти сына, знаменитый чемпион НБА отправляется в сказочный мир, где в команде мультяшек вынужден сражаться на баскетбольной площадке с цифровыми копиями знаменитых игроков.", genres: ["мультфильм", "комедия", "семейный", "фантастика"])

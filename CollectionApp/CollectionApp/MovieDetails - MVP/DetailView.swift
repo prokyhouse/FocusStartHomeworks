@@ -10,9 +10,6 @@ import UIKit
 import SnapKit
 
 final class DetailView: UIView {
-	
-	private var contentModel = Movie(title: "smth", overview: "overview", genres: ["genre"])
-	
 	private enum Metrics {
 		static let spaceBetweenComponents: CGFloat = 9
 		static let blurRadius: CGFloat = 16
@@ -30,14 +27,14 @@ final class DetailView: UIView {
 	
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
-		self.configure()
+		//self.configure()
 	}
 	
 	public required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	private func configure() {
+	func configure() {
 		self.setConfig()
 		self.addSubviews()
 		self.setConstraints()
@@ -66,7 +63,6 @@ final class DetailView: UIView {
 	}
 	
 	func setContent(model: Movie) {
-		self.contentModel = model
 		self.posterView.image = UIImage(named: model.title)?.blurred(radius: Metrics.blurRadius)
 		self.posterView.clipsToBounds = true
 		self.titleLabel.text = model.title

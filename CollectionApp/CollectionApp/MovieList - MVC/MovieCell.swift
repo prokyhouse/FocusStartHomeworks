@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 
 final class MovieCell: UICollectionViewCell {
-	
 	private enum Metrics {
 		static let spaceBetweenComponents: CGFloat = 9
 	}

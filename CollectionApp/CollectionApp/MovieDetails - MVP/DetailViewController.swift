@@ -9,30 +9,43 @@ import Foundation
 import UIKit
 
 final class DetailViewController: UIViewController {
-	var movie = Movie(title: "smth", overview: "text", genres: ["no genre"])
-	private let detailView = DetailView()
+	private var detailView: DetailView
+	private var detailViewPresenter: DetailViewPresenter
+	var model = MovieModel()
+
+	init() {
+		self.detailView = DetailView(frame: UIScreen.main.bounds)
+		self.detailViewPresenter = DetailViewPresenter()
+		super.init(nibName: nil, bundle: nil)
+	}
+
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
 	override func loadView() {
-		detailView.setContent(model: movie)
-		self.view = self.detailView
+		detailView.setContent(model: model.getMovie())
+		super.loadView()
+		self.detailViewPresenter.loadView(controller: self, view: self.detailView)
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.title = movie.title
+		self.title = model.getTitle()
 		self.detailView.moreButton.addTarget(self, action: #selector(openOverview), for: .touchUpInside)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.tabBarController?.tabBar.isHidden = true
+		self.view.addSubview(detailView)
 	}
 	
 	@IBAction func openOverview(_ sender: Any) {
 		let overviewVC = OverviewViewController()
 		overviewVC.modalPresentationStyle = .pageSheet
 		overviewVC.modalTransitionStyle = .coverVertical
-		overviewVC.movie = movie
+		overviewVC.movie = model.getMovie()
 		present(overviewVC, animated: true)
 	}
 	
