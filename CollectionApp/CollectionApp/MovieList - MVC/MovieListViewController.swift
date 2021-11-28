@@ -46,8 +46,9 @@ final class MovieListViewController: UIViewController {
 
 extension MovieListViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let detailVC = DetailViewController()
-		detailVC.movie = self.movies[indexPath.item]
+		let detailVC = DetailViewController.init()
+		let movie = self.movies[indexPath.item]
+		detailVC.model.setMovie(movie: movie)
 		self.navigationController?.pushViewController(detailVC, animated: true)
 	}
 
