@@ -8,8 +8,9 @@
 import UIKit
 
 final class OverviewViewController: UIViewController {
+	let viewModel = ViewModel()
 
-	var movie: Movie = Movie(title: "smth", overview: "text", genres: ["no genre"])
+	let label = UILabel()
 
 	private enum Metrics {
 		static let spaceBetweenComponents: CGFloat = 9
@@ -18,6 +19,10 @@ final class OverviewViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.configure()
+
+		self.viewModel.data.setNotify { [weak self] text in
+			self?.label.text = text
+		}
 	}
 
 	private func configure() {
@@ -31,8 +36,6 @@ final class OverviewViewController: UIViewController {
 		closeButton.setImage(.init(systemName: "xmark"), for: .normal)
 		closeButton.tintColor = .label
 
-		let label = UILabel()
-		label.text = movie.overview
 		label.numberOfLines = 40
 		label.textAlignment = .center
 

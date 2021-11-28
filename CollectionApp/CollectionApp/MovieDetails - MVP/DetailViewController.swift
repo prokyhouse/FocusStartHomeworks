@@ -42,10 +42,12 @@ final class DetailViewController: UIViewController {
 	}
 	
 	@IBAction func openOverview(_ sender: Any) {
+
 		let overviewVC = OverviewViewController()
+		overviewVC.viewModel.updateModel(movie: model.getMovie())
 		overviewVC.modalPresentationStyle = .pageSheet
 		overviewVC.modalTransitionStyle = .coverVertical
-		overviewVC.movie = model.getMovie()
+		//overviewVC.movie = model.getMovie()
 		present(overviewVC, animated: true)
 	}
 	
