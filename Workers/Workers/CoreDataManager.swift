@@ -126,27 +126,13 @@ class CoreDataManager: NSObject {
 	}
 
 	/// fetch all the objects from core data
-	class func fetchWorkers(selectedScopeIdx: Int?=nil, targetText: String?=nil) -> [worker] {
+	class func fetchWorkers(withId: UUID) -> [worker] {
 		var array = [worker]()
 
 		let fetchRequest: NSFetchRequest<Worker> = Worker.fetchRequest()
 
-		if selectedScopeIdx != nil && targetText != nil {
-
-			var filterKeyword = ""
-			switch selectedScopeIdx! {
-			case 0:
-				filterKeyword = "name"
-			case 1:
-				filterKeyword = "by"
-			default:
-				filterKeyword = "year"
-			}
-
-			let predicate = NSPredicate(format: "\(filterKeyword) contains[c] %@", targetText!)
-
-			fetchRequest.predicate = predicate
-		}
+		let companyId = withId
+		fetchRequest.predicate = NSPredicate(format: "company == %@", companyId as CVarArg)
 
 		do {
 			let fetchResult = try getContext().fetch(fetchRequest)
