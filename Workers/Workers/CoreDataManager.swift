@@ -162,23 +162,22 @@ class CoreDataManager: NSObject {
 
 	}
 
-	//
-	//    class func deleteCoreDataItemWithIndex() {
-	//
-	//        var predicate = NSPredicate(format: "name contains[c] %@", "001")
-	//
-	//        let fetchRequest:NSFetchRequest<ImageEntity> = ImageEntity.fetchRequest()
-	//        fetchRequest.predicate = predicate
-	//
-	//        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
-	//
-	//        do {
-	//            try getContext().execute(deleteRequest)
-	//        }catch {
-	//            print(error.localizedDescription)
-	//        }
-	//
-	//
-	//    }
+
+	class func deleteWorkerWithId(id: UUID) {
+
+
+		let fetchRequest:NSFetchRequest<Worker> = Worker.fetchRequest()
+		fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+
+		let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
+
+		do {
+			try getContext().execute(deleteRequest)
+		}catch {
+			print(error.localizedDescription)
+		}
+
+
+	}
 
 }
