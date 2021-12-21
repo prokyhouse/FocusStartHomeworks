@@ -29,8 +29,6 @@ class WorkersViewController: UITableViewController {
 		self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Worker")
 		NotificationCenter.default.addObserver(self, selector: #selector(reloadList), name: NSNotification.Name(rawValue: "reloadWorkers"), object: nil)
 
-		workersArray.append(worker(name: "Ivan", companyId: UUID(), experience: 15, birthday: Date()))
-
 		let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addWorker))
 		self.navigationItem.rightBarButtonItem  = addButton
 	}
@@ -43,12 +41,12 @@ class WorkersViewController: UITableViewController {
 	}
 
 	@objc func reloadList(notification: NSNotification) {
-		workersArray = CoreDataManager.fetchWorkers()
+		workersArray = CoreDataManager.fetchWorkers(withId: companyId)
 		tableView.reloadData()
 	}
 
 	func updateData() {
-		workersArray = CoreDataManager.fetchWorkers()
+		workersArray = CoreDataManager.fetchWorkers(withId: companyId)
 	}
 
 	// MARK: - Table view data source
