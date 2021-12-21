@@ -162,9 +162,7 @@ class CoreDataManager: NSObject {
 
 	}
 
-
 	class func deleteWorkerWithId(id: UUID) {
-
 
 		let fetchRequest:NSFetchRequest<Worker> = Worker.fetchRequest()
 		fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
@@ -176,8 +174,30 @@ class CoreDataManager: NSObject {
 		}catch {
 			print(error.localizedDescription)
 		}
-
-
 	}
 
+	class func deleteCompanyWithId(id: UUID) {
+
+		let workersFetchRequest:NSFetchRequest<Worker> = Worker.fetchRequest()
+		workersFetchRequest.predicate = NSPredicate(format: "company == %@", id as CVarArg)
+
+		let workersDeleteRequest = NSBatchDeleteRequest(fetchRequest: workersFetchRequest as! NSFetchRequest<NSFetchRequestResult>)
+
+		do {
+			try getContext().execute(workersDeleteRequest)
+		}catch {
+			print(error.localizedDescription)
+		}
+
+		let fetchRequest:NSFetchRequest<Company> = Company.fetchRequest()
+		fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+
+		let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
+
+		do {
+			try getContext().execute(deleteRequest)
+		}catch {
+			print(error.localizedDescription)
+		}
+	}
 }

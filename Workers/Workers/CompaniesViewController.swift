@@ -80,4 +80,12 @@ class CompaniesViewController: UITableViewController, UISearchBarDelegate {
 		workersVC.companyId = companyId
 		self.navigationController?.pushViewController(workersVC, animated: true)
 	}
+
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			CoreDataManager.deleteCompanyWithId(id: companiesArray[indexPath.row].companyId)
+			companiesArray.remove(at: indexPath.row)
+			tableView.deleteRows(at: [indexPath], with: .fade)
+		}
+	}
 }
